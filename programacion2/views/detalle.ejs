@@ -47,34 +47,35 @@
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
-            </div>
-            </div>
-          </div>
-
-          <div>
-            <h2>¡Dejanos tu reseña!</h2>
-            <form>
-              <textarea name="myTextBox" cols="100" rows="5" style="background-color:rgb(146, 146, 146);">
-              
-              </textarea>
-              <br />
-              <input type="submit" />
-            </form>
-              
-            <h3>Otras reseñas</h3>
-             
-              <div>
-  <!-- Aca hay que poner un FOR para que se pongan todas las reviews que coincidan con el ID de la pelicula 
-  // const DB = require('../database/models');
-// const Op = DB.Sequelize.Op;
-  
-  
-  -->
-              </div>
+                <h1>Add a new review</h1>
+                <form class="crud" action="/movies/add" method="post">
+                    <div class="form-group">
+                        <label for="reviewText">Review:</label><br>
+                        <input type="text" id="title" name="title" value="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="score">score(out of 10):</label><br>
+                        <input type="text" id="rating" name="score" value="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="|userId">created by:</label><br>
+                        <input type="text" id="awards" name="awards" value="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="createdAt">Created at:</label><br>
+                        <input type="date" id="createdAt name='createdAt'  value="" class="form-control">
+                    </div>
+                               
+    </div>
+    <div class="form-group">
+        <button type="submit" name="button" class="btn btn-success">Submit</button>
+    </div>
+</form>
+      </div>
 
           </div>
         </div>
-      </div>
+      </div> 
 
     </main>
 
