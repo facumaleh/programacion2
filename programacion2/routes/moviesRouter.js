@@ -1,0 +1,25 @@
+
+var express = require('express');
+var router = express.Router();
+var controller =require('../controllers/moviesController') 
+
+// populares
+router.get('/home', controller.lista);
+// detalles
+router.get('/detalle', controller.detalles);
+// mejores puntuadas
+router.get('/buscador', controller.search);
+// porGenero
+router.get('/seriesByGenre', controller.porGenero);
+// SeriesGenre
+router.get('/seriesGenres', controller.seriesGenre);
+
+// resultados busqueda
+router.get('/resultadoBusqueda', controller.resultadosBusqueda);
+
+
+module.exports = router;
+
+
+
+
