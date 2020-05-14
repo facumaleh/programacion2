@@ -1,9 +1,9 @@
-// const DB = require('../database/models');
-// const Op = DB.Sequelize.Op;
+const DB = require('../database/models');
+const Op = DB.Sequelize.Op;
 
 module.exports = {
     lista : function(req, res, ) {
-        res.render('home');
+    res.render('home');
       },
     detalles: function (req, res) {
         res.render ('detalle')

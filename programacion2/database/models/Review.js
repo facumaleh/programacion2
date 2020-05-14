@@ -2,8 +2,8 @@ module.exports = function (sequelize, DataTypes) {
     const review = sequelize.define(
         'Review',
         {
-            idMovie: DataTypes.INTEGER,
-            idUser: DataTypes.INTEGER,
+            movie_id: DataTypes.INTEGER,
+            user_id: DataTypes.INTEGER,
             reviewText:DataTypes.STRING,
             createdAt: DataTypes.DATE,
             updatedAt: DataTypes.DATE,

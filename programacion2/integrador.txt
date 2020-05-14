@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 13-05-2020 a las 21:50:06
+-- Tiempo de generación: 14-05-2020 a las 22:25:44
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.4.2
 
@@ -22,13 +22,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `reviews` (
   `idReview` int(11) NOT NULL,
-  `idMovie` int(11) NOT NULL,
-  `idUser` int(11) DEFAULT NULL,
+  `movie_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `reviewText` text NOT NULL,
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
   `score` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `reviews`
+--
+
+INSERT INTO `reviews` (`idReview`, `movie_id`, `user_id`, `reviewText`, `createdAt`, `updatedAt`, `score`) VALUES
+(1, 1, 1, '\"SDWDAWD\"', '2000-12-12', '2000-12-12', 10);
 
 -- --------------------------------------------------------
 
@@ -39,7 +46,7 @@ CREATE TABLE `reviews` (
 CREATE TABLE `usuarios` (
   `username` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `idUser` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `birthdate` date DEFAULT NULL,
   `password` char(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -48,7 +55,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`username`, `email`, `idUser`, `birthdate`, `password`) VALUES
+INSERT INTO `usuarios` (`username`, `email`, `id`, `birthdate`, `password`) VALUES
 ('Marc-AndréTerStegen', 'Marc-AndréTerStegen@gmail.com', 1, '1978-01-01', 'Marc-AndréTerStegen'),
 ('LuisSuarez', 'luissuarez@gmail.com', 2, '1978-01-01', 'luisSuarez'),
 ('AntoineGriezmann', 'Antoinegriezmann@gmail.com', 3, '1978-01-01', 'AntoineGriezmann'),
@@ -80,13 +87,13 @@ INSERT INTO `usuarios` (`username`, `email`, `idUser`, `birthdate`, `password`) 
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`idReview`),
-  ADD KEY `reviews_FK` (`idUser`);
+  ADD KEY `reviews_FK` (`user_id`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`idUser`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -96,13 +103,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `idReview` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idReview` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
@@ -112,4 +119,4 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_FK` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`idUser`);
+  ADD CONSTRAINT `reviews_FK` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`);
