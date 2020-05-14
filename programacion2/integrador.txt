@@ -1,0 +1,115 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:3306
+-- Tiempo de generación: 13-05-2020 a las 21:50:06
+-- Versión del servidor: 5.7.26
+-- Versión de PHP: 7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `integrador`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `idReview` int(11) NOT NULL,
+  `idMovie` int(11) NOT NULL,
+  `idUser` int(11) DEFAULT NULL,
+  `reviewText` text NOT NULL,
+  `createdAt` date DEFAULT NULL,
+  `updatedAt` date DEFAULT NULL,
+  `score` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `idUser` int(11) NOT NULL,
+  `birthdate` date DEFAULT NULL,
+  `password` char(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`username`, `email`, `idUser`, `birthdate`, `password`) VALUES
+('Marc-AndréTerStegen', 'Marc-AndréTerStegen@gmail.com', 1, '1978-01-01', 'Marc-AndréTerStegen'),
+('LuisSuarez', 'luissuarez@gmail.com', 2, '1978-01-01', 'luisSuarez'),
+('AntoineGriezmann', 'Antoinegriezmann@gmail.com', 3, '1978-01-01', 'AntoineGriezmann'),
+('FrenkieDeJong', 'FrenkiedeJong@gmail.com', 4, '1978-01-01', 'Frenkie de Jong'),
+('LionelMessi', 'leommessi@gmail.com', 5, '1978-01-01', 'Barça'),
+('JordiAlba', 'JordiAlba@gmail.com', 6, '1978-01-01', 'JordiAlba'),
+('MartinBraithwaite', 'MartinBraithwaite@gmail.com', 7, '1978-01-01', 'MartinBraithwaite'),
+('ArthurMelo', 'ArthurMelo@gmail.com', 8, '1978-01-01', 'ArthurMelo'),
+('ClémentLenglet', 'ClémentLenglet@gmail.com', 9, '1978-01-01', 'ClémentLenglet'),
+('SamuelUmtiti', 'SamuelUmtiti@gmail.com', 10, '1978-01-01', 'SamuelUmtiti'),
+('AnsuFati', 'AnsuFati@gmail.com', 11, '1978-01-01', 'AnsuFati'),
+('GerardPiqué', 'GerardPiqué@gmail.com', 12, '1978-01-01', 'GerardPiqué'),
+('JúniorFirpo', 'JúniorFirpo@gmail.com', 13, '1978-01-01', 'JúniorFirpo'),
+('RiquiPuig@gmail.com\n', 'RiquiPuig@gmail.com', 14, '1978-01-01', 'RiquiPuig\n'),
+('Neto', 'Neto@gmail.com', 15, '1978-01-01', 'Neto'),
+('ArturoVidal', 'ArturoVidal@gmail.com', 16, '1978-01-01', 'ArturoVidal'),
+('Ousmane Dembélé', 'OusmaneDembélé@gmail.com', 17, '1978-01-01', 'OusmaneDembélé'),
+('IvanRakitic', 'IvanRakitic@gmail.com', 18, '1978-01-01', 'IvanRakitic'),
+('SergioBusquets', 'SergioBusquets@gmail.com', 19, '1978-01-01', 'SergioBusquets'),
+('NélsonSemedo', 'NélsonSemedo@gmail.com', 20, '1978-01-01', 'NélsonSemedo'),
+('SergiRoberto', 'SergiRoberto@gmail.com', 21, '1978-01-01', 'SergiRoberto');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`idReview`),
+  ADD KEY `reviews_FK` (`idUser`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`idUser`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `idReview` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_FK` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`idUser`);
