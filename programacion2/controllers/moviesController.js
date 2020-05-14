@@ -1,3 +1,6 @@
+// const DB = require('../database/models');
+// const Op = DB.Sequelize.Op;
+
 module.exports = {
     lista : function(req, res, ) {
         res.render('home');

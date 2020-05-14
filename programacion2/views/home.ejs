@@ -6,76 +6,65 @@
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/home.css">
     <link rel="stylesheet" href="/stylesheets/uikit.min.css">
-    <link rel="stylesheet" href="css/carrousel.css">
+    <link rel="stylesheet" href="/stylesheets/carrousel.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
 
     <script src="/javascritps/uikit-icons.min.js" ></script>
     <script src="/javascritps/uikit.min.js" ></script>
     <script src="/javascritps/home.js" ></script>
-    <script src="js/carrousel.js"></script>
+    <script src="/javascritps/login.js" ></script>
+    </head>
   <body>
-    <header>
-        <nav>
-            <ul class="logo-list">
-                <li class="logo"> <img src="/images/dh.png" alt=""> </li>
-            </ul>
-            <ul class="ul-menu">
-                <li class="menu-item home"><a class="color-violet" href="/movies/home">Inicio</a></li>
-                <li class="menu-item"><a class="color-violet" href="/movies/seriesGenres">Géneros</a></li>
-                <li class="menu-item"><a class="color-violet" href="/movies/buscador">Buscador</a></li>
-                <li class="menu-item search">
-                    <form class="" action="/movies/resultadoBusqueda" method="GET">
-                        <input class="input-search" type="text" name="query" value="">
-                        <button class="btn-search" type="submit">Buscar</button>
-                    </form>
-                </li>
-
-            </ul>
-        </nav>
+    <header>   
+  <%- include('./partials/navBar.ejs') %> 
     </header>
+    
     <main>
+      <div class="uk-section fondoNegro">
+        <!-- <div class="uk-container"> -->
+        <h2>Popular Series</h2>
+        <div class="slider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true; autoplay: true">
+          <ul class="uk-slider-items uk-grid" id="populares">
+            <!-- POPULARES -->
+          </ul>
+          <a class="iconSlider uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="iconSlider uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
-
-        <div class="uk-section fondoNegro">
-          <!-- <div class="uk-container"> -->
-          <h2>Popular Series</h2>
-          <div class="slider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true; autoplay: true">
-            <ul class="uk-slider-items uk-grid" id="populares">
-              <!-- POPULARES -->
-            </ul>
-            <a class="iconSlider uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="iconSlider uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
-        </div>
-        <!-- </div> -->
-      </div>
-        <div class="uk-section fondoNegro">
-          <!-- <div class="uk-container"> -->
-          <h2>Top Rated Series</h2>
-          <div class="slider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true; autoplay: true">
-            <ul class="uk-slider-items uk-grid" id="top-rated">
-              <!-- TOP RATED -->
-            </ul>
-            <a class="iconSlider uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="iconSlider uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
-        </div>
-      <!-- </div> -->
       </div>
       <!-- </div> -->
-        <div class="uk-section fondoNegro">
-          <!-- <div class="uk-container"> -->
-          <h2>Airing Today</h2>
-          <div class="slider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true; autoplay: true">
-            <ul class="uk-slider-items uk-grid" id="airing">
-              <!-- AIRING TODAY -->
-            </ul>
-            <a class="iconSlider uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="iconSlider uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    </div>
+      <div class="uk-section fondoNegro">
+        <!-- <div class="uk-container"> -->
+        <h2>Top Rated Series</h2>
+        <div class="slider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true; autoplay: true">
+          <ul class="uk-slider-items uk-grid" id="top-rated">
+            <!-- TOP RATED -->
+          </ul>
+          <a class="iconSlider uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="iconSlider uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
-        </div>
-        <!-- </div> -->
       </div>
-    </main>
+    <!-- </div> -->
+    </div>
+    <!-- </div> -->
+      <div class="uk-section fondoNegro">
+        <!-- <div class="uk-container"> -->
+        <h2>Airing Today</h2>
+        <div class="slider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true; autoplay: true">
+          <ul class="uk-slider-items uk-grid" id="airing">
+            <!-- AIRING TODAY -->
+          </ul>
+          <a class="iconSlider uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="iconSlider uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+      </div>
+      <!-- </div> -->
+    </div>
+  </main>
+
+</body>
+</html>
+
 
   </body>
   <%-include('./partials/footer.ejs')  %> 
