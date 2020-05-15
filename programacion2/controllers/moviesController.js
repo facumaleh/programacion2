@@ -39,7 +39,8 @@ module.exports = {
     },
 
     UserDetail: function (req,res){
-        DB.Usuario.findByPk(req.params.id)
+        let id = req.params.id;
+        DB.Usuario.findByPk(id)
         .then(resultados=>{
             res.render('userDetails', { resultados: resultados, id: req.params.id })
         })

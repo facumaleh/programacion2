@@ -24,9 +24,7 @@
         <% for(let i = 0; i < resultados.length; i++){ %>
             <li>
              <a href="/movies/userDetail/<%= resultados[i].id %> " class="uk-text-secondary">
-                 <p>username: <%= resultados[i].username %> </p>
-                <p>Email: <%=  resultados[i].email %></p>
-                <p>Birthdate: <%= resultados[i].birthdate %> </p>
+                 <p><%= resultados[i].username %> </p>
               </a>
             </li>
             
