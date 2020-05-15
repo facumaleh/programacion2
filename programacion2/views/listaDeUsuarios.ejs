@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nerfli</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/usuarios.css">
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+
+    <script src="/javascritps/login.js" ></script>
+    <script src="/javascripts/uikit-icons.min.js" ></script>
+    <script src="/javascripts/uikit.min.js" ></script>
+    <script src="/javascripts/detalle.js" ></script>
+   
+  </head>
+  <body>
+    <header>
+    
+ <%- include('./partials/navBar.ejs') %> 
+    </header>
+    <main>
+
+        <% for(let i = 0; i < resultados.length; i++){ %>
+            <li>
+             <a href="/movies/userDetail/<%= resultados[i].id %> " class="uk-text-secondary">
+                 <p>username: <%= resultados[i].username %> </p>
+                <p>Email: <%=  resultados[i].email %></p>
+                <p>Birthdate: <%= resultados[i].birthdate %> </p>
+              </a>
+            </li>
+            
+          <% } %>     
+
+    </main>
+
+  </body>
+  <%-include('./partials/footer.ejs')  %> 
+</html>

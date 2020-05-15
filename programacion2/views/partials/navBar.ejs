@@ -7,7 +7,8 @@
             <li class="menu-item home"><a class="color-violet" href="/movies/home">Inicio</a></li>
             <li class="menu-item"><a class="color-violet" href="/movies/seriesGenres">Géneros</a></li>
             <li class="menu-item"><a class="color-violet" href="/movies/buscador">Buscador</a></li>
-            <li class="menu-item search">
+            <li class="menu-item"><a class="color-violet" href="/movies/userlist">Usuarios</a></li>
+            <li class="menu-item">
                 <form class="" action="/movies/resultadoBusqueda" method="GET">
                     <input class="query" type="text" name="query" value="">
                     <button class="btn-search" type="submit" name="button">Buscar</button>
@@ -17,7 +18,7 @@
 
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/movies/home">
+  <form class="modal-content" action="/movies/addUser"method="post">
     <div class="container">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>

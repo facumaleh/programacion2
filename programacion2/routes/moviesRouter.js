@@ -16,7 +16,14 @@ router.get('/seriesGenres', controller.seriesGenre);
 
 // resultados busqueda
 router.get('/resultadoBusqueda', controller.resultadosBusqueda);
+// post de usuarios
+router.post('/addUser', controller.addUser);
 
+//ruta de usuarios
+router.get('/userlist',controller.userList);
+
+//ruta detalle de usuario
+router.get('/userDetail/:id',controller.UserDetail);
 
 module.exports = router;
 

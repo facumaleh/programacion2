@@ -24,4 +24,26 @@ module.exports = {
     resultadosBusqueda: function(req,res){
         res.render('resultadoBusqueda')
     },
+
+
+    userList:function (req,res){
+        DB.Usuario.findAll()
+        .then(resultados =>{
+            res.render('listaDeUsuarios', { resultados: resultados, title: "All the users" });
+        })
+    },
+
+    addUser:function(req,res){
+        DB.Usuario.create(req.body)
+        .then(res.redirect('/movies/home'))
+    },
+
+    UserDetail: function (req,res){
+        DB.Usuario.findByPk(req.params.id)
+        .then(resultados=>{
+            res.render('userDetails', { resultados: resultados, id: req.params.id })
+        })
+
+    },
 }
+
