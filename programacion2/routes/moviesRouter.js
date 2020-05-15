@@ -23,7 +23,7 @@ router.post('/addUser', controller.addUser);
 router.get('/userlist',controller.userList);
 
 //ruta detalle de usuario
-router.get('/userDetail/:id',controller.UserDetail);
+router.get('/userDetail/:username/:email/:birthdate',controller.UserDetail);
 
 module.exports = router;
 

@@ -10,7 +10,11 @@
 
     <script src="/javascripts/uikit-icons.min.js" ></script>
     <script src="/javascripts/uikit.min.js" ></script>
-  
+    <script >
+      function goBack() {
+  window.history.back()
+}
+    </script>
    
   </head>
   <body>
@@ -19,17 +23,17 @@
  <%- include('./partials/navBar.ejs') %> 
     </header>
     <main>
-      <H1>Este es el usuario</H1>
-                               
-        <% for(let i = 0; i < resultados.length; i++){ %>
-            <li>
-                 <h1>username: <%= resultados[i].username %> </h1>
-                <p>Email: <%=  resultados[i].email %></p>
-                <p>Birthdate: <%= resultados[i].birthdate %> </p>
-              </a>
-            </li>
-            
-          <% } %>     
+      <H1>Esta es la informacion <%= username %> %> </H1>
+
+      <h2> Se email es: <%= email %> <br>
+            Su fecha de nacimiento es:<%= birthdate %> 
+      </h2>
+
+  
+
+      <button onclick="goBack()">Go Back</button>
+      
+         
     </main>
 
   </body>

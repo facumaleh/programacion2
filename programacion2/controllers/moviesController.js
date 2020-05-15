@@ -38,13 +38,25 @@ module.exports = {
         .then(res.redirect('/movies/home'))
     },
 
-    UserDetail: function (req,res){
-        let id = req.params.id;
-        DB.Usuario.findByPk(id)
-        .then(resultados=>{
-            res.render('userDetails', { resultados: resultados, id: req.params.id })
-        })
+    UserDetail: function (req,res)
+        // let username = req.params.username;
+        // DB.Usuario.findByPk(username)
+        // .then(resultados=>{
+        //     res.render('userDetails', { resultados: resultados, usuario: username})
+        // })
+        {
+            let username= req.params.username;
+            let email= req.params.email;
+            let birthdate= req.params.birthdate;
 
-    },
+            DB.Usuario.findByPk(username)
+            .then(resultados =>{
+                res.render('userDetails', { resultados: resultados, username:username,email:email,birthdate:birthdate})
+            })
+        },
+
+
+
+    
 }
 
