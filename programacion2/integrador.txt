@@ -2,8 +2,8 @@
 -- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 14-05-2020 a las 22:25:44
+-- Servidor: localhost:3309
+-- Tiempo de generación: 16-05-2020 a las 17:26:10
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.4.2
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `reviews` (
-  `idReview` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `reviewText` text NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `reviews` (
 -- Volcado de datos para la tabla `reviews`
 --
 
-INSERT INTO `reviews` (`idReview`, `movie_id`, `user_id`, `reviewText`, `createdAt`, `updatedAt`, `score`) VALUES
+INSERT INTO `reviews` (`id`, `movie_id`, `user_id`, `reviewText`, `createdAt`, `updatedAt`, `score`) VALUES
 (1, 1, 1, '\"SDWDAWD\"', '2000-12-12', '2000-12-12', 10);
 
 -- --------------------------------------------------------
@@ -69,14 +69,23 @@ INSERT INTO `usuarios` (`username`, `email`, `id`, `birthdate`, `password`) VALU
 ('AnsuFati', 'AnsuFati@gmail.com', 11, '1978-01-01', 'AnsuFati'),
 ('GerardPiqué', 'GerardPiqué@gmail.com', 12, '1978-01-01', 'GerardPiqué'),
 ('JúniorFirpo', 'JúniorFirpo@gmail.com', 13, '1978-01-01', 'JúniorFirpo'),
-('RiquiPuig@gmail.com\n', 'RiquiPuig@gmail.com', 14, '1978-01-01', 'RiquiPuig\n'),
+('RiquiPuig\n', 'RiquiPuig@gmail.com', 14, '1978-01-01', 'RiquiPuig\n'),
 ('Neto', 'Neto@gmail.com', 15, '1978-01-01', 'Neto'),
 ('ArturoVidal', 'ArturoVidal@gmail.com', 16, '1978-01-01', 'ArturoVidal'),
 ('Ousmane Dembélé', 'OusmaneDembélé@gmail.com', 17, '1978-01-01', 'OusmaneDembélé'),
 ('IvanRakitic', 'IvanRakitic@gmail.com', 18, '1978-01-01', 'IvanRakitic'),
 ('SergioBusquets', 'SergioBusquets@gmail.com', 19, '1978-01-01', 'SergioBusquets'),
 ('NélsonSemedo', 'NélsonSemedo@gmail.com', 20, '1978-01-01', 'NélsonSemedo'),
-('SergiRoberto', 'SergiRoberto@gmail.com', 21, '1978-01-01', 'SergiRoberto');
+('SergiRoberto', 'SergiRoberto@gmail.com', 21, '1978-01-01', 'SergiRoberto'),
+('Facumaleh', 'facumaleh@gmail.com', 22, '2001-02-21', '1234567890'),
+('Tomascaimmi', 'tomascaimmi@gmail.com', 23, '2000-01-01', 'Tomas123'),
+('LebroJames', 'lebronjames@gmail.com', 24, '1984-12-30', 'Lebron123'),
+('gianisAntetokumpo', 'gianisAntetokumpo@gmail.com', 25, '1994-12-06', 'gianisAntetokumpo'),
+('CristianoRonaldo', 'cr7@gmail.com', 26, '1990-02-02', 'cr7123'),
+('iniesta', 'ere@gmail.com', 27, '2000-12-12', '123456754'),
+('kobeBryant', 'kb@gmail.com', 28, '2000-12-12', 'Kobe123'),
+('messi', 'messi@messi.com', 29, '2001-02-02', '123456678990'),
+('messi3', 'messi3@messi.com', 30, '2001-02-02', 'messi');
 
 --
 -- Índices para tablas volcadas
@@ -86,7 +95,7 @@ INSERT INTO `usuarios` (`username`, `email`, `id`, `birthdate`, `password`) VALU
 -- Indices de la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`idReview`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `reviews_FK` (`user_id`);
 
 --
@@ -103,13 +112,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `idReview` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restricciones para tablas volcadas
