@@ -34,7 +34,16 @@ module.exports = {
     },
 
     addUser:function(req,res){
-        DB.Usuario.create(req.body)
+      let usuario = {
+            username: req.body.username,
+            password: req.body.password,
+            email:    req.body.email,
+            birthdate: req.body.birthdate, };
+            let errors = [];
+
+
+
+        DB.Usuario.create(usuario)
         .then(res.redirect('/movies/home'))
     },
 
@@ -54,6 +63,19 @@ module.exports = {
                 res.render('userDetails', { resultados: resultados, username:username,email:email,birthdate:birthdate})
             })
         },
+
+
+        signUp :function (req, res) {
+            res.render ('signUp')
+            
+        },
+        logIn :function (req, res) {
+            res.render ('logIn')
+            
+        },
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
-var controller =require('../controllers/moviesController') 
+var controller = require('../controllers/moviesController') 
 
 // populares
 router.get('/home', controller.lista);
@@ -24,6 +24,11 @@ router.get('/userlist',controller.userList);
 
 //ruta detalle de usuario
 router.get('/userDetail/:username/:email/:birthdate',controller.UserDetail);
+
+router.get('/signUp',controller.signUp)
+router.get('/logIn',controller.logIn)
+
+
 
 module.exports = router;
 
