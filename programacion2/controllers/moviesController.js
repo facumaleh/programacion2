@@ -49,68 +49,71 @@ module.exports = {
     },
 
             
+            //esta parte estaba marcada
+    // addUser:function(req,res){
             
-            // addUser:function(req,res){
-            
-            // const { username, email, password, birthdate } = req.body;
-            // let errors = [],
+    //         const { username, email, password, birthdate } = req.body;
+    //         let errors = [],
   
-            // if (!username || !email || !password || !birthdate) {
-            //   errors.push({ msg: 'Please enter all fields' });
-            // }
+    //         if (!username || !email || !password || !birthdate) {
+    //           errors.push({ msg: 'Please enter all fields' });
+    //         }
   
-            // if (password.length < 6) {
-            //   errors.push({ msg: 'Password must be at least 6 characters' });
-            // }
+    //         if (password.length < 6) {
+    //           errors.push({ msg: 'Password must be at least 6 characters' });
+    //         }
   
-            // if (errors.length > 0) {
-            //   res.render('SignUp', {
-            //     errors,
-            //     username,
-            //     email,
-            //     password,
-            //     birthdate
-            //   });
-            // } else {
-            //   DB.Usuario.findOne({ email: email }).then(usuario => {
-            //     if (usuario) {
-            //       errors.push({ msg: 'Email already exists' });
-            //       res.render('signUp', {
-            //         errors,
-            //         username,
-            //         email,
-            //         password,
-            //         birthdate
-            //       });
-            //     } else {
-            //       const newUser = new User({
-            //         username,
-            //         email,
-            //         password,
-            //         birthdate,
-                    
-            //       });
-  
-            //       bcrypt.genSalt(10, (err, salt) => {
-            //         bcrypt.hash(newUser.password, salt, (err, hash) => {
-            //           if (err) throw err;
-            //           newUser.password = hash;
-            //           newUser
-            //             .save()
-            //             .then(usuario => {
-            //               req.flash(
-            //                 'success_msg',
-            //                 'You are now registered and can log in'
-            //               );
-            //               res.redirect('/movies/login');
-            //             })
-            //             .catch(err => console.log(err));
-            //         });
-            //       });
-            //     }
-            //   });
-            // }
-            // },
+    //         if (errors.length > 0) {
+    //           res.render('SignUp', {
+    //                 errors,
+    //                 username,
+    //                 email,
+    //                 password,
+    //                 birthdate
+    //           });
+    //         }
+    //         else {
+    //             DB.Usuario.findOne({ email: email }).then(usuario => {
+    //                     if (usuario) {
+    //                     errors.push({ msg: 'Email already exists' });
+    //                     res.render('signUp', {
+    //                         errors,
+    //                         username,
+    //                         email,
+    //                         password,
+    //                         birthdate
+    //                       });
+    //                     }
+    //                     else {
+    //                         const newUser = new User({
+    //                                 username,
+    //                                 email,
+    //                                 password,
+    //                                 birthdate,
+                            
+    //                                                 });
+        
+    //                         bcrypt.genSalt(10, (err, salt) => {
+    //                                 bcrypt.hash(newUser.password, salt, (err, hash) => {
+    //                                 if (err) throw err;
+    //                                 newUser.password = hash;
+    //                                 newUser
+    //                                     .save()
+    //                                     .then(usuario => {
+    //                                     req.flash(
+    //                                         'success_msg',
+    //                                         'You are now registered and can log in'
+    //                                     );
+    //                                     res.redirect('/movies/login');
+    //                                     })
+    //                                     .catch(err => console.log(err));
+    //                                 });
+    //                             });
+    //                     }
+    //           ) 
+    //         }
+    //         }
+    //  };
 
     UserDetail: function (req,res)
         // let username = req.params.username;
