@@ -5,6 +5,7 @@ function myFunction() {
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
     li = ul.getElementsByTagName('li');
+   var text;
   
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
@@ -12,17 +13,24 @@ function myFunction() {
       txtValue = a.textContent || a.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         li[i].style.display = "";
-      } else {
+        text= 'Esperamos que hayas encontrado lo que buscabas :)'
+      }
+      else {
         li[i].style.display = "none";
       }
+   
+      document.getElementById("acaIriaElTextoSiNoHayNada").innerHTML = text;
+
     }
+
+
+
       
     };
 
-function siNoHayNada() {
-  var text;
-  if (li.length===0) {
-    text= 'none';
-  }
-  document.getElementById("acaIriaElTextoSiNoHayNada").innerHTML = text;
-}
+
+    // if (text=="undefined") {
+    //   text= "no hay nada";
+    // }
+    // document.getElementById("acaIriaElTextoSiNoHayNada").innerHTML = text;
+
