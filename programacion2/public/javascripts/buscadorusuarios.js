@@ -15,6 +15,10 @@ function myFunction() {
         li[i].style.display = "";
         text= 'Esperamos que hayas encontrado lo que buscabas :)'
       }
+      else if (text===undefined) {
+        text = "No encontramos ningún resultado relacionado con tu busqueda :(";
+      li[i].style.display = "none";
+      }
       else {
         li[i].style.display = "none";
       }
@@ -29,8 +33,5 @@ function myFunction() {
     };
 
 
-    // if (text=="undefined") {
-    //   text= "no hay nada";
-    // }
-    // document.getElementById("acaIriaElTextoSiNoHayNada").innerHTML = text;
+
 
