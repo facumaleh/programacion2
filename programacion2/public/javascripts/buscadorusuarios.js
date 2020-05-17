@@ -16,4 +16,13 @@ function myFunction() {
         li[i].style.display = "none";
       }
     }
+      
+    };
+
+function siNoHayNada() {
+  var text;
+  if (li.length===0) {
+    text= 'none';
   }
+  document.getElementById("acaIriaElTextoSiNoHayNada").innerHTML = text;
+}

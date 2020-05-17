@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/usuarios.css">
     <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <link rel="stylesheet" href="/stylesheets/buscadorusuarios.css">
+
 
     <script src="/javascripts/uikit-icons.min.js" ></script>
     <script src="/javascripts/uikit.min.js" ></script>
@@ -21,40 +23,32 @@
     </header>
     <main>
 <br><br>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca un usuario...">
+
+
+<h2>Buscar usuarios:</h2>
+<br>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca por usuario o email">
 
 <ul id="myUL">
   <% for(let i = 0; i < resultados.length; i++){ %>
     <li>
      <a href="/movies/userDetail/<%= resultados[i].username%>/<%= resultados[i].email %>/<%= resultados[i].birthdate %>  " class="uk-text-secondary">
          <p><%= resultados[i].username %> </p>
+         <p><%= resultados[i].email %> </p>
       </a>
     </li>
-    
   <% } %>     
 </ul>
+<p id="acaIriaElTextoSiNoHayNada"></p>
 
 
 
 
 <br><br>
 
-<h2>Buscar usuarios:</h2>
-<form class="" action="/movies/userList" method="GET">
-    <input class="query" type="text" name="query" value="">
-    <button class="" type="submit" name="button">Buscar</button>
-</form> 
 
-<br><br>
 
-        <% for(let i = 0; i < resultados.length; i++){ %>
-            <li>
-             <a href="/movies/userDetail/<%= resultados[i].username%>/<%= resultados[i].email %>/<%= resultados[i].birthdate %>  " class="uk-text-secondary">
-                 <p><%= resultados[i].username %> </p>
-              </a>
-            </li>
-            
-          <% } %>     
 
     </main>
 
