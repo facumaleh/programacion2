@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
         },
             
         {
-            tableName: 'usuarios',
+            tableName: 'reviews',
             timestamps: false
         }
 

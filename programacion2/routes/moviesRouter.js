@@ -26,8 +26,13 @@ router.get('/userlist',controller.userList);
 router.get('/userDetail/:username/:email/:birthdate',controller.UserDetail);
 
 router.get('/signUp',controller.signUp)
-router.get('/logIn',controller.logIn)
 
+router.get('/logIn',controller.logIn)
+router.post('/logIn',controller.logInPorPost)
+
+
+// crear review
+router.post('/reviewsAdd', controller.reviewsAdd),
 
 
 module.exports = router;

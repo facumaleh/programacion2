@@ -1,6 +1,7 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
+
 
 module.exports = {
     lista : function(req, res, ) {
@@ -38,7 +39,7 @@ module.exports = {
 
         let usuarioFinal = {
             username: req.body.username,
-            password: req.body.password,
+            password:  bcrypt.hashSync(req.body.password, 10) ,
             email:    req.body.email,
             birthdate: req.body.birthdate, 
         };
@@ -67,10 +68,17 @@ module.exports = {
                 } else {
                     console.log('entro al else');
                     
+
+
+                   
+
+                    
+
+                    
                     DB.Usuario.create(usuarioFinal)
                     .then(res.redirect('/movies/home'))
                 }
-            })
+                })
             .catch(error => res.send(error));      
     },
 
@@ -105,9 +113,16 @@ module.exports = {
         },
 
 
+        logInPorPost:function(req, res){
+            res.redirect('/movies/home')
+        },
 
 
 
+        reviewsAdd:function(req,res){
+            DB.Review.create(req.body)
+            .then(res.redirect('/movies/detalle?serieId=' + req.query.id))
+        },
 
     
 }

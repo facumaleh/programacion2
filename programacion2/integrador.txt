@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3309
--- Tiempo de generación: 16-05-2020 a las 17:26:10
+-- Tiempo de generación: 18-05-2020 a las 15:53:05
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.4.2
 
@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
-  `movie_id` int(11) NOT NULL,
+  `movie_id` varchar(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `reviewText` text NOT NULL,
   `createdAt` date DEFAULT NULL,
@@ -35,7 +35,12 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `movie_id`, `user_id`, `reviewText`, `createdAt`, `updatedAt`, `score`) VALUES
-(1, 1, 1, '\"SDWDAWD\"', '2000-12-12', '2000-12-12', 10);
+(1, '1', 1, '\"SDWDAWD\"', '2000-12-12', '2000-12-12', 10),
+(2, '60625', NULL, 'sdfsdfsdfsdf', '2020-05-21', NULL, 8),
+(3, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12', NULL, 8),
+(4, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12', NULL, 8),
+(5, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12', NULL, 8),
+(6, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -85,7 +90,22 @@ INSERT INTO `usuarios` (`username`, `email`, `id`, `birthdate`, `password`) VALU
 ('iniesta', 'ere@gmail.com', 27, '2000-12-12', '123456754'),
 ('kobeBryant', 'kb@gmail.com', 28, '2000-12-12', 'Kobe123'),
 ('messi', 'messi@messi.com', 29, '2001-02-02', '123456678990'),
-('messi3', 'messi3@messi.com', 30, '2001-02-02', 'messi');
+('messi3', 'messi3@messi.com', 30, '2001-02-02', 'messi'),
+('maradona', 'maradona@maradona.com', 31, '2001-02-02', 'maradona'),
+('facu', 'messi@messi.com', 32, '2001-02-02', '123456678990'),
+('JaviDH', 'javi@dh.com', 33, '2020-05-18', '123456'),
+('43087273', 'messi@messi.com.ar', 34, '2001-02-02', '123456678990'),
+('sadkm', 'sadnjs@gmail.com', 35, '2001-02-02', '$2b$10$T0Q31a67ZJay9c5nRQdUNuiaQ3WQX4EbEM0bBqvoicESVEYM5dXXO'),
+(NULL, NULL, 36, NULL, NULL),
+(NULL, NULL, 37, NULL, NULL),
+(NULL, NULL, 38, NULL, NULL),
+(NULL, NULL, 39, NULL, NULL),
+(NULL, NULL, 40, NULL, NULL),
+(NULL, NULL, 41, NULL, NULL),
+(NULL, NULL, 42, NULL, NULL),
+(NULL, NULL, 43, NULL, NULL),
+(NULL, NULL, 44, NULL, NULL),
+(NULL, NULL, 45, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -112,13 +132,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Restricciones para tablas volcadas
