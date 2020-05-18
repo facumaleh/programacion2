@@ -9,7 +9,11 @@ module.exports = {
       },
     detalles: function (req, res) {
         res.render ('detalle',{
-            idpelicula:req.query.serieId
+            idpelicula:req.query.serieId,
+            // resultados: req.resultados, 
+            // userId:user_id,
+            // created:createdAt,
+            // updated:updatedAt
         })
         
     },
@@ -122,30 +126,34 @@ module.exports = {
 
 
         reviewsAdd:function(req,res){
+            const idpelicula=req.query.serieId
+
+            console.log("este es el id:"+ idpelicula);
+            
             DB.Review.create(req.body)
-            .then(res.redirect('/movies/detalle?serieId=' + req.query.id))
+            .then(res.redirect('/movies/home'))
         },
         
 
 
-        printReviews: function (req,res)
-        {
-            let id= req.params.id;
-            let userId=req.params.user_id;
-            let created= req.params.createdAt;
-            let updated= req.params.updatedAt;
+        // printReviews: function (req,res)
+        // {
+        //     let id= req.params.id;
+        //     let userId=req.params.user_id;
+        //     let created= req.params.createdAt;
+        //     let updated= req.params.updatedAt;
             
 
-            DB.reviews.findByPk(reviewText)
-            .then(resultados =>{
-                res.render('userDetails', { 
-                    resultados: resultados, 
-                    userId:user_id,
-                    created:createdAt,
-                    updated:updatedAt
-                })
-            })
-        },
+        //     DB.reviews.findByPk(reviewText)
+        //     .then(resultados =>{
+        //         res.render('userDetails', { 
+        //             resultados: resultados, 
+        //             userId:user_id,
+        //             created:createdAt,
+        //             updated:updatedAt
+        //         })
+        //     })
+        // },
     
 }
 
