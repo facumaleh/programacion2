@@ -2,14 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Nerfli</title>
+    <title>Nerfli-Detalle</title>
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/detalle.css">
     <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <link rel="stylesheet" href="/stylesheets/buscadorusuarios.css">
+
 
     <script src="/javascripts/uikit-icons.min.js" ></script>
     <script src="/javascripts/uikit.min.js" ></script>
     <script src="/javascripts/detalle.js" ></script>
+    <script src="/javascripts/buscadorusuarios.js" ></script>
+
    
   </head>
   <body>
@@ -52,12 +56,26 @@
                         <input type="text" id="title" name="reviewText" value="" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="score">score(out of 10):</label><br>
-                        <input type="text" id="rating" name="score" value="" class="form-control">
+                        <label for="score">Rating (out of 10):</label><br>
+                        <div class="custom-select" style="width:200px;" id="rating" name="score" value="">
+                          <select>
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                          </select>
+                        </div>
                     </div>
                     <div class="form-group">
-                      <label for="score">Id Peli:</label><br>
-                      <input type="text" id="rating" name="movie_id" value="60625" class="form-control">
+                      <label for="score"></label><br>
+                      <input id="movie_id" name="movie_id" type='hidden' value=<%= idpelicula %>  class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="createdAt">Created at:</label><br>
@@ -83,12 +101,27 @@
         </div>
       </div> 
       <div>
-<h2>Estas son las reviews</h2>
-<% if (typeof resultados != 'undefined') { %>
-  <% for( let i = 0; i < resul.length; i++ ) { %>
+<h2 style="color: white;">Estas son las reviews:</h2>
+<br><br>
+
+<% if (typeof resultados != 'undefined') { %> 
+  <% for( let i = 0; i < resultados.length; i++ ) { %>
   <%= resultados[i].reviewText %> 
   <% } %>
 <% } %>
+
+  <!-- tirar un for que muestre todas las reviews-->
+  <ul id="myUL">
+    <% for(let i = 0; i < 5; i++){ %>
+      <li>
+       <a href='' class ="uk-text-secondary">
+           <p><%= //nombre del usuario haciendo la review %> </p>
+           <p><%= //reviewText %> </p>
+        </a>
+      </li>
+    <% } %>     
+  </ul>
+
 
 
       </div>

@@ -1,6 +1,6 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
 
 module.exports = {
@@ -8,7 +8,9 @@ module.exports = {
     res.render('home');
       },
     detalles: function (req, res) {
-        res.render ('detalle')
+        res.render ('detalle',{
+            idpelicula:req.query.serieId
+        })
         
     },
 
@@ -123,7 +125,27 @@ module.exports = {
             DB.Review.create(req.body)
             .then(res.redirect('/movies/detalle?serieId=' + req.query.id))
         },
+        
 
+
+        printReviews: function (req,res)
+        {
+            let id= req.params.id;
+            let userId=req.params.user_id;
+            let created= req.params.createdAt;
+            let updated= req.params.updatedAt;
+            
+
+            DB.reviews.findByPk(reviewText)
+            .then(resultados =>{
+                res.render('userDetails', { 
+                    resultados: resultados, 
+                    userId:user_id,
+                    created:createdAt,
+                    updated:updatedAt
+                })
+            })
+        },
     
 }
 
