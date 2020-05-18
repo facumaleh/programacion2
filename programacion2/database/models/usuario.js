@@ -17,5 +17,20 @@ module.exports = function (sequelize, DataTypes) {
             timestamps: false
         }
     );
+
+   
+
+
+            
+            usuario.associate = function(models){
+                usuario.hasMany(models.Review,{
+                    as: 'user_idreview',
+                    foreignKey: 'user_id'
+                });
+        
+            }
+      
+
+
     return usuario;
 }
