@@ -46,6 +46,12 @@
 				<p>Don't have an Account? <a href="/movies/logIn"> Login Now!</a></p>
 			</div>
 		</div>
+		<% if (typeof errors != 'undefined') { %>
+			<% for( let i = 0; i < errors.length; i++ ) { %>
+			<%= errors[i].msg %> 
+			<% } %>
+		<% } %>
+		
 	<!-- //main -->
 	<%-include('./partials/footer.ejs')  %> 
 </body>
