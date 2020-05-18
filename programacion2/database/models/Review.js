@@ -15,8 +15,14 @@ module.exports = function (sequelize, DataTypes) {
             timestamps: false
         }
 
+        
 
     );
+
+
+    review.belongsTo(usuario ,
+        {foreignKey: "user_id"})
+
 
  
 
