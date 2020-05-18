@@ -27,6 +27,7 @@ module.exports = function (sequelize, DataTypes) {
                     as: 'user_idreview',
                     foreignKey: 'user_id'
                 });
+                
         
             }
       

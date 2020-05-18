@@ -20,11 +20,14 @@ module.exports = function (sequelize, DataTypes) {
     );
 
 
-    review.belongsTo(usuario ,
-        {foreignKey: "user_id"})
+
+    review .associate = function(models){
+        review .belongsTo(models.Usuario ,
+        {   as : 'idUsuario',
+            foreignKey: "user_id"})
 
 
- 
+    }
 
 
 
