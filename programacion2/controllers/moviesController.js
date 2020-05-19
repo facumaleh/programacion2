@@ -11,9 +11,9 @@ module.exports = {
         // DB.Review.findByPk(serieId)
 
         DB.Review.findAll(   
-             where: [
-                 {movie_id: req.query.serieId} ]
-        )
+            { where: 
+                [{movie_id: req.query.serieId}]
+            })
 
         .then(resultados =>{
             res.render('detalle', { Review: resultado, idpelicula:req.query.serieId});
