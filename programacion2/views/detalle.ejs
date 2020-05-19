@@ -91,19 +91,22 @@
 <h2 style="color: white;">Estas son las reviews:</h2>
 <br><br>
 
-<% if (typeof Review= 'undefined') { %> 
+<% if (typeof Review== 'undefined') { %> 
   <% for( let i = 0; i < Review.length; i++ ) { %>
-  <%= Review[i].score %> 
+  <%= Review[i].reviewText %> 
   <% } %>
 <% } %>
 
   <!-- tirar un for que muestre todas las reviews-->
   <ul id="myUL">
-    <% for(let i = 0; i < 5; i++){ %>
+    <% for(let i = 0; i < Review.length; i++){ %>
       <li>
        <a href='' class ="uk-text-secondary">
-           <p><%= //nombre del usuario haciendo la review %> </p>
-           <p><%= //reviewText %> </p>
+           <p><%= Review[i].movie_id %> </p>
+           <p><%= // Nombre del que hizo la review %> </p>
+           <p><%= Review[i].reviewText %> </p>
+           <p>Rating: <%= Review[i].score %> </p>
+           <p>Reseña creada el <%= Review[i].createdAt %> </p>
         </a>
       </li>
     <% } %>     

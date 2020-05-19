@@ -15,8 +15,8 @@ module.exports = {
                 [{movie_id: req.query.serieId}]
             })
 
-        .then(resultados =>{
-            res.render('detalle', { Review: resultado, idpelicula:req.query.serieId});
+        .then(Review =>{
+            res.render('detalle', { Review: Review, idpelicula:req.query.serieId});
         })
     
     },
