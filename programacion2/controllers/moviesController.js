@@ -10,21 +10,15 @@ module.exports = {
     detalles: function (req, res) {
         // DB.Review.findByPk(serieId)
 
-        DB.Review.findByPk(movie_id)
+        DB.Review.findAll(   
+             where: [
+                 {movie_id: req.query.serieId} ]
+        )
+
         .then(resultados =>{
             res.render('detalle', { Review: resultado, idpelicula:req.query.serieId});
         })
-
-
-
-        // res.render ('detalle',{
-        //     idpelicula:req.query.serieId,
-            // resultados: req.resultados, 
-            // userId:user_id,
-            // created:createdAt,
-            // updated:updatedAt
-        // })
-        
+    
     },
 
         
@@ -64,9 +58,9 @@ module.exports = {
         
         
         DB.Usuario.findOne({ 
-            where: {
+              where: [{
                 email: usuarioFinal.email
-            }
+            }]
         })
             .then(usuario=> {
                 
