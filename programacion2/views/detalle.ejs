@@ -50,7 +50,7 @@
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
                 <h1>Add a new review</h1>
-                <form class="crud" action="/movies/reviewsAdd" method="post">
+                <form class="crud" action="/movies/reviewsAdd/<%=idpelicula%>" method="post">
                     <div class="form-group">
                         <label for="reviewText">Review:</label><br>
                         <input type="text" id="title" name="reviewText" value="" class="form-control">
@@ -91,9 +91,9 @@
 <h2 style="color: white;">Estas son las reviews:</h2>
 <br><br>
 
-<% if (typeof resultados != 'undefined') { %> 
-  <% for( let i = 0; i < resultados.length; i++ ) { %>
-  <%= resultados[i].reviewText %> 
+<% if (typeof Review= 'undefined') { %> 
+  <% for( let i = 0; i < Review.length; i++ ) { %>
+  <%= Review[i].score %> 
   <% } %>
 <% } %>
 

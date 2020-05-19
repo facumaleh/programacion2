@@ -8,13 +8,22 @@ module.exports = {
     res.render('home');
       },
     detalles: function (req, res) {
-        res.render ('detalle',{
-            idpelicula:req.query.serieId,
+        // DB.Review.findByPk(serieId)
+
+        DB.Review.findByPk(movie_id)
+        .then(resultados =>{
+            res.render('detalle', { Review: resultado, idpelicula:req.query.serieId});
+        })
+
+
+
+        // res.render ('detalle',{
+        //     idpelicula:req.query.serieId,
             // resultados: req.resultados, 
             // userId:user_id,
             // created:createdAt,
             // updated:updatedAt
-        })
+        // })
         
     },
 
@@ -126,34 +135,40 @@ module.exports = {
 
 
         reviewsAdd:function(req,res){
-            const idpelicula=req.query.serieId
+            const idpelicula=req.params.Id;
 
-            console.log("este es el id:"+ idpelicula);
+            console.log("este es el id:"+ idpelicula)
+            console.log(req.query);
             
-            DB.Review.create(req.body)
-            .then(res.redirect('/movies/home'))
-        },
+
+            
+              DB.Review.create(req.body)
+                .then(function() {
+                    res.redirect('/movies/detalle?serieId='+idpelicula)              
+                })
+
+            },
         
 
 
-        // printReviews: function (req,res)
-        // {
-        //     let id= req.params.id;
-        //     let userId=req.params.user_id;
-        //     let created= req.params.createdAt;
-        //     let updated= req.params.updatedAt;
-            
+            // printReviews: function (req,res)
+            // {
+            //     let id= req.params.id;
+            //     let userId=req.params.user_id;
+            //     let created= req.params.createdAt;
+            //     let updated= req.params.updatedAt;
+                
 
-        //     DB.reviews.findByPk(reviewText)
-        //     .then(resultados =>{
-        //         res.render('userDetails', { 
-        //             resultados: resultados, 
-        //             userId:user_id,
-        //             created:createdAt,
-        //             updated:updatedAt
-        //         })
-        //     })
-        // },
+            //     DB.reviews.findByPk(reviewText)
+            //     .then(resultados =>{
+            //         res.render('userDetails', { 
+            //             resultados: resultados, 
+            //             userId:user_id,
+            //             created:createdAt,
+            //             updated:updatedAt
+            //         })
+            //     })
+            // },
     
 }
 
