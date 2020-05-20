@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nerfli-Detalle</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/detalle.css">
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <link rel="stylesheet" href="/stylesheets/buscadorusuarios.css">
+
+
+    <script src="/javascripts/uikit-icons.min.js" ></script>
+    <script src="/javascripts/uikit.min.js" ></script>
+    <script src="/javascripts/detalle.js" ></script>
+    <script src="/javascripts/buscadorusuarios.js" ></script>
+
+   
+  </head>
+  <body>
+    <header>
+    
+ <%- include('./partials/navBar.ejs') %> 
+    </header>
+
+    <h1>Add a new movie</h1>
+    <form  action="'movies/edit/<%= movie_id %>  method="post">
+        <div class="form-group">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="reviewText" value="<%= Review.reviewText %> " class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="rating">Score:</label><br>
+            <input type="text" id="rating" name="score" value="<%=Revieww.score  %>  class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="createdAt">created at:</label><br>
+            <input type="date" id="release_date" name="createdAt" value="<%= Review.createdAt %>  class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" name="button" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+    
+</body>
+</html>

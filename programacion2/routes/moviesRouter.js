@@ -34,6 +34,8 @@ router.post('/logIn',controller.logInPorPost)
 // crear review
 router.post('/reviewsAdd/:Id', controller.reviewsAdd),
 
+router.get('/edit/:Id', controller.edit),
+
 
 module.exports = router;
 

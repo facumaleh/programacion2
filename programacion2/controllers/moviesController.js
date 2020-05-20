@@ -143,26 +143,30 @@ module.exports = {
 
             },
         
+            edit: function(req,res){
+        let pedidoReview = DB.Review.findByPk(req.query.serieId)
+          .then(function(Review){
+            res.render('editReview',{Review : Review, movie_id: req.query.serieId})
+          })  
+               
+        
+        
+        
+        
+        
+        // DB.Review.update( {
+        //             reviewText:req.body.reviewText,
+        //             score:req.body.score,
+        //             createdAt:req.body.createdAt,
+        //         },{
+        //             where:{movie_id: req.query.serieId
 
-
-            // printReviews: function (req,res)
-            // {
-            //     let id= req.params.id;
-            //     let userId=req.params.user_id;
-            //     let created= req.params.createdAt;
-            //     let updated= req.params.updatedAt;
+        //             }
+        //         });
+        //          res.redirect('movies/editReview/' +req.query.serieId )
                 
+            },
 
-            //     DB.reviews.findByPk(reviewText)
-            //     .then(resultados =>{
-            //         res.render('userDetails', { 
-            //             resultados: resultados, 
-            //             userId:user_id,
-            //             created:createdAt,
-            //             updated:updatedAt
-            //         })
-            //     })
-            // },
     
 }
 
