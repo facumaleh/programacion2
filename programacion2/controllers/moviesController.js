@@ -165,7 +165,7 @@ module.exports = {
             }
          })
           .then(function(Review){
-            res.render('editReview',{Review : Review, movie_id: req.query.Id})
+            res.render('editReview',{Review : Review, idpelicula:req.params.Id})
           })  
                
         
