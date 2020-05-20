@@ -144,26 +144,18 @@ module.exports = {
             },
         
             edit: function(req,res){
-        let pedidoReview = DB.Review.findByPk(req.query.serieId)
+        DB.Review.findOne({
+            where: {
+                movie_id: req.query.serieId
+            }
+         })
           .then(function(Review){
             res.render('editReview',{Review : Review, movie_id: req.query.serieId})
           })  
                
         
         
-        
-        
-        
-        // DB.Review.update( {
-        //             reviewText:req.body.reviewText,
-        //             score:req.body.score,
-        //             createdAt:req.body.createdAt,
-        //         },{
-        //             where:{movie_id: req.query.serieId
-
-        //             }
-        //         });
-        //          res.redirect('movies/editReview/' +req.query.serieId )
+    
                 
             },
 
