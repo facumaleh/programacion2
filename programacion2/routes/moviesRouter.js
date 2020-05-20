@@ -36,6 +36,10 @@ router.post('/reviewsAdd/:Id', controller.reviewsAdd),
 
 router.get('/edit/:Id', controller.edit),
 
+//eliminar review
+router.post('/delete/:Id', controller.delete),
+
+
 
 module.exports = router;
 

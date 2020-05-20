@@ -143,14 +143,29 @@ module.exports = {
 
             },
         
+            delete: function(req,res){
+                DB.Review.destroy(
+                    { where: 
+                        {movie_id: req.params.Id}
+                    })
+                    .then(function() {
+                        res.redirect('/movies/detalle?serieId='+ req.params.Id)              
+                    })
+    
+                },
+                
+                 
+
+
+
             edit: function(req,res){
         DB.Review.findOne({
             where: {
-                movie_id: req.query.serieId
+               movie_id: req.params.Id
             }
          })
           .then(function(Review){
-            res.render('editReview',{Review : Review, movie_id: req.query.serieId})
+            res.render('editReview',{Review : Review, movie_id: req.query.Id})
           })  
                
         
