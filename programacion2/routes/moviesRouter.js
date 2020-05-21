@@ -34,7 +34,12 @@ router.post('/logIn',controller.logInPorPost)
 // crear review
 router.post('/reviewsAdd/:Id', controller.reviewsAdd),
 
-router.get('/edit/:Id', controller.edit),
+router.post('/edit/:Id', controller.edit),
+
+// router.post('/confirmedit/:Id',  controller.confirmEdit)
+
+
+
 
 //eliminar review
 router.post('/delete/:Id', controller.delete),

@@ -144,12 +144,13 @@ module.exports = {
             },
         
             delete: function(req,res){
+               
                 DB.Review.destroy(
                     { where: 
-                        {movie_id: req.params.Id}
+                        {id: req.params.Id}
                     })
                     .then(function() {
-                        res.redirect('/movies/detalle?serieId='+ req.params.Id)              
+                        res.redirect('/movies/detalle?serieId='+ req.body.idpelicula)              
                     })
     
                 },
@@ -161,18 +162,35 @@ module.exports = {
             edit: function(req,res){
         DB.Review.findOne({
             where: {
-               movie_id: req.params.Id
+               id: req.params.Id
             }
          })
           .then(function(Review){
-            res.render('editReview',{Review : Review, idpelicula:req.params.Id})
+            res.render('editReview',{Review : Review, idpelicula:req.body.idpelicula})
           })  
                
         
         
-    
+   
                 
             },
+
+
+
+        //  confirmEdit:function(req,res){
+        //         const idpelicula=req.params.Id;
+    
+        //         console.log("este es el id:"+ idpelicula)
+        //         console.log(req.query);
+                
+    
+                
+        //           DB.Review.update(req.body)
+        //             .then(function() {
+        //                 res.redirect('/movies/detalle?serieId='+idpelicula)              
+        //             })
+    
+        //         },
 
     
 }
