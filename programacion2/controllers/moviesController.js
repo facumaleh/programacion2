@@ -1,7 +1,7 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 //const bcrypt = require('bcrypt');
-
+let modulo=require('../modulo-login');
 
 module.exports = {
     lista : function(req, res, ) {
@@ -117,7 +117,17 @@ module.exports = {
             
         },
         logIn :function (req, res) {
-            res.render ('logIn')
+            DB.Usuario.findOne({
+                where:{
+                    email:email,
+                    password: password
+                },
+            })
+            .then(results=>{
+                return res.render('logIn');
+            })
+
+            // res.render ('logIn')
             
         },
 
@@ -177,21 +187,37 @@ module.exports = {
 
 
 
-        //  confirmEdit:function(req,res){
-        //         const idpelicula=req.params.Id;
-    
-        //         console.log("este es el id:"+ idpelicula)
-        //         console.log(req.query);
-                
-    
-                
-        //           DB.Review.update(req.body)
-        //             .then(function() {
-        //                 res.redirect('/movies/detalle?serieId='+idpelicula)              
-        //             })
-    
-        //         },
+         confirmEdit:function(req,res){
+                const idpelicula = req.body.movie_id      
+               const idreview = req.params.Id           
 
+
+    
+                // console.log("este es el id:"+ idpelicula)
+                // console.log(req.query);
+                
+                // res.send('/llgó a confirm edit')              
+
+            
+                
+                  DB.Review.update(req.body,{
+                      where: {
+                        id: req.params.Id
+                     }
+                  })
+
+                    .then(function() {
+                        res.redirect('/movies/detalle?serieId='+idpelicula)              
+                    })
+    
+                },
+
+
+                myReviews:function(req,res){
+
+                       res.render("myReviews") 
+
+                }
     
 }
 

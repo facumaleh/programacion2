@@ -23,7 +23,8 @@
     </header>
 
     <h1>Add a new movie</h1>
-    <form class="crud" action="/movies/reviewsAdd/<%=idpelicula%>" method="post">
+    <h2> <%= Review.movie_id %>  </h2>
+    <form class="crud" action="/movies/confirmedit/<%= Review.id %>" method="post">
         <div class="form-group">
             <label for="title">Title:</label><br>
             <input type="text" id="title" name="reviewText" value="<%= Review.reviewText %> " class="form-control">
@@ -34,7 +35,7 @@
         </div>
         <div class="form-group">
             <label for="score"></label><br>
-            <input id="movie_id" name="movie_id" type='hidden' value='<%= idpelicula %> ' class="form-control">
+            <input id="movie_id" name="movie_id" type='hidden' value='<%= Review.movie_id %> ' class="form-control">
         </div>
         <div class="form-group">
             <label for="createdAt">created at:</label><br>

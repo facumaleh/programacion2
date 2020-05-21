@@ -36,9 +36,9 @@ router.post('/reviewsAdd/:Id', controller.reviewsAdd),
 
 router.post('/edit/:Id', controller.edit),
 
-// router.post('/confirmedit/:Id',  controller.confirmEdit)
+router.post('/confirmedit/:Id',  controller.confirmEdit)
 
-
+router.get('/myReviews',controller.myReviews)
 
 
 //eliminar review
