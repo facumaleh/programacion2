@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/detalle.css">
     <link rel="stylesheet" href="/stylesheets/uikit.min.css">
     <link rel="stylesheet" href="/stylesheets/buscadorusuarios.css">
+    <link rel="stylesheet" href="/stylesheets/detalle.css">
 
 
     <script src="/javascripts/uikit-icons.min.js" ></script>
@@ -31,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="rating">Score:</label><br>
-            <input type="text" id="rating" name="score" value="<%=Review.score %> " class="form-control">
+            <input class="uk-range" type="range" id="rating" name="score" value="<%=Review.score %> " class="form-control">
         </div>
         <div class="form-group">
             <label for="score"></label><br>

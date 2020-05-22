@@ -124,7 +124,7 @@ module.exports = {
                 },
             })
             .then(results=>{
-                return res.render('logIn');
+                return res.render('myReviews');
             })
 
             // res.render ('logIn')
