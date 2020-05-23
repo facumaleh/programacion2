@@ -1,6 +1,6 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
-const bcrypt = require('bcryptjs');
+//const bcrypt = require('bcrypt');
 let modulo=require('../modulo-login');
 
 module.exports = {
@@ -10,7 +10,9 @@ module.exports = {
     detalles: function (req, res) {
         // DB.Review.findByPk(serieId)
 
-        DB.Review.findAll(   
+        DB.Review.findAll(  {include: [
+            { association: "Usuario" }, ]},
+             
             { where: 
                 [{movie_id: req.query.serieId}]
             })
@@ -124,7 +126,7 @@ module.exports = {
                 },
             })
             .then(results=>{
-                return res.render('myReviews');
+                return res.render('logIn');
             })
 
             // res.render ('logIn')
