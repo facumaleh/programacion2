@@ -10,16 +10,14 @@ module.exports = {
     detalles: function (req, res) {
         // DB.Review.findByPk(serieId)
 
-        DB.Review.findAll(  {include: [
-            { association: "Usuario" }, ]},
-             
-            { where: 
-                [{movie_id: req.query.serieId}]
-            })
-
-        .then(Review =>{
-            res.render('detalle', { Review: Review, idpelicula:req.query.serieId});
-        })
+        DB.Review.findAll({
+            include: ["Usuario"],
+            where: { movie_id: req.query.serieId }
+         })
+         .then(Review => {
+            console.log(Review[0].Usuario);
+            res.render('detalle', { Review: Review, idpelicula: req.query.serieId });
+         });
     
     },
 
