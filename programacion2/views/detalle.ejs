@@ -114,8 +114,14 @@
     <% for(let i = 0; i < Review.length; i++){ %>
       <li>
        <a href='' class ="uk-text-secondary">
-         
-           <p><%= Review[i].Usuario.username %> </p>
+
+        
+        <% if (Review[i].Usuario) { %>
+          <p><%= Review[i].Usuario.email %> </p> 
+       <% } %>
+
+
+
            <p><%= Review[i].reviewText %> </p>
            <p>Rating: <%= Review[i].score %> </p>
 
