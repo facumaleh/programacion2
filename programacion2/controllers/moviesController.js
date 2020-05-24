@@ -2,6 +2,7 @@ const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 //const bcrypt = require('bcrypt');
 let modulo=require('../modulo-login');
+const { Association } = require('sequelize/types');
 
 module.exports = {
     lista : function(req, res, ) {
@@ -108,7 +109,10 @@ module.exports = {
             let birthdate= req.params.birthdate;
             
 
-            DB.Usuario.findByPk(username)
+            DB.Usuario.findByPk(username,
+                {
+                    include: ["Review"]
+                 })
             .then(resultados =>{
                 res.render('userDetails', { resultados: resultados, username:username,email:email,birthdate:birthdate})
             })
