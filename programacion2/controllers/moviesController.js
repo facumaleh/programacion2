@@ -15,9 +15,12 @@ module.exports = {
             where: { movie_id: req.query.serieId }
          })
          .then(Review => {
-            console.log(Review[0].Usuario);
+            // console.log(Review[0].Usuario);
             res.render('detalle', { Review: Review, idpelicula: req.query.serieId });
          });
+
+        
+         
     
     },
 
