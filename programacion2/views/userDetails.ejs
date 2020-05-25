@@ -33,12 +33,14 @@
   <br>
   <h2>Sus reseñas:</h2>
 
+  <% for( let i = 0;i < resultados.Review.length;i++ ) { %>
+    <u>
+      <li> <%=   resultados.Review[i].reviewText%></li>
+      <br>
+    </u>
+  <% } %>
 
-  <% for( let i = 0; i < resultados.length; i++ ) { %>
-    <p><%= resultados[i].Review.score %> </p> 
-    <% } %>
-<br>
-
+ 
 
 
 
