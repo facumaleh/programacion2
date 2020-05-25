@@ -34,10 +34,15 @@
   <h2>Sus reseñas:</h2>
 
   <% for( let i = 0;i < resultados.Review.length;i++ ) { %>
-    <u>
-      <li> <%=   resultados.Review[i].reviewText%></li>
+    <ul>
+    
+      <li>
+
+        <a href="/movies/detalle?serieId=<%=resultados.Review[i].movie_id  %> "><%=  resultados.Review[i].reviewText%></a>
+     
+      </li>
       <br>
-    </u>
+    </ul>
   <% } %>
 
  
