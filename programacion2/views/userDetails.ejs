@@ -24,7 +24,7 @@
  <%- include('./partials/navBar.ejs') %> 
     </header>
     <main>
-      <H1>Esta es la informacion de <%= username %> %> </H1>
+      <H1>Esta es la informacion de <%= username %> </H1>
 <br>
       <h2> Su email es: <%= email %> <br><br><br>
             Su fecha de nacimiento es el:<%= birthdate %> 
@@ -35,7 +35,7 @@
 
 
   <% for( let i = 0; i < resultados.length; i++ ) { %>
-    <p><%= resultados[i].Review.reviewText %> </p> 
+    <p><%= resultados[i].Review.score %> </p> 
     <% } %>
 <br>
 

@@ -23,7 +23,7 @@ router.post('/addUser', controller.addUser);
 router.get('/userlist',controller.userList);
 
 //ruta detalle de usuario
-router.get('/userDetail/:username/:email/:birthdate',controller.UserDetail);
+router.get('/userDetail/:username/:email/:birthdate/:id',controller.UserDetail);
 
 router.get('/signUp',controller.signUp)
 

@@ -33,7 +33,7 @@
 <ul id="myUL">
   <% for(let i = 0; i < resultados.length; i++){ %>
     <li>
-     <a href="/movies/userDetail/<%= resultados[i].username%>/<%= resultados[i].email %>/<%= resultados[i].birthdate %>  " class="uk-text-secondary">
+     <a href="/movies/userDetail/<%= resultados[i].username%>/<%= resultados[i].email %>/<%= resultados[i].birthdate %>/ <%= resultados[i].id  %>  " class="uk-text-secondary">
          <p><%= resultados[i].username %> </p>
          <p><%= resultados[i].email %> </p>
       </a>
