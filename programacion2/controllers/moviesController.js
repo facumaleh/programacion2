@@ -1,7 +1,7 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 //const bcrypt = require('bcrypt');
-let modulo=require('../modulo-login');
+let moduloLogin =require('../modulo-login');
 // const { Association } = require('sequelize/types');
 
 module.exports = {
@@ -150,16 +150,28 @@ module.exports = {
 
         reviewsAdd:function(req,res){
             const idpelicula=req.params.Id;
+            let username = req.body.username;
+            let password = req.body.password;
 
             console.log("este es el id:"+ idpelicula)
             console.log(req.query);
+
+            
+                moduloLogin.validar(username, password)
+                .then(function(usuario) {
+                    if (usuario != null) {
+                        DB.Review.create(req.body)
+                        .then(function() {
+                            res.redirect('/movies/detalle?serieId='+idpelicula)              
+                        })
+                    } else {
+                        res.send("ERROR! USUARIO NO ENCONTRADO!")
+                    }
+                })
             
 
             
-              DB.Review.create(req.body)
-                .then(function() {
-                    res.redirect('/movies/detalle?serieId='+idpelicula)              
-                })
+              
 
             },
         
@@ -180,6 +192,7 @@ module.exports = {
 
 
             edit: function(req,res){
+                
         DB.Review.findOne({
             where: {
                id: req.params.Id
@@ -199,7 +212,11 @@ module.exports = {
 
          confirmEdit:function(req,res){
                 const idpelicula = req.body.movie_id      
-               const idreview = req.params.Id           
+               const idreview = req.params.Id      
+               let username = req.body.username;
+            let password = req.body.password;
+               
+
 
 
     
@@ -209,7 +226,10 @@ module.exports = {
                 // res.send('/llgó a confirm edit')              
 
             
-                
+                moduloLogin.validar(username, password)
+                .then(function(usuario) {
+                    if (usuario != null) {
+
                   DB.Review.update(req.body,{
                       where: {
                         id: req.params.Id
@@ -219,6 +239,13 @@ module.exports = {
                     .then(function() {
                         res.redirect('/movies/detalle?serieId='+idpelicula)              
                     })
+                }
+                else{
+                    res.send("ERROR! USUARIO NO ENCONTRADO!")
+
+                }
+            })
+
     
                 },
 
