@@ -1,6 +1,6 @@
 const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
-//const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 let moduloLogin =require('../modulo-login');
 // const { Association } = require('sequelize/types');
 
@@ -165,7 +165,7 @@ module.exports = {
                             res.redirect('/movies/detalle?serieId='+idpelicula)              
                         })
                     } else {
-                        res.send("ERROR! USUARIO NO ENCONTRADO!")
+                        res.redirect('/movies/Signup')
                     }
                 })
             
