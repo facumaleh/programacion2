@@ -5,7 +5,7 @@
     <title>Nerfli</title>
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/uikit.min.css">
-    <link rel="stylesheet" href="/stylesheets/login.css">
+
 <head>
   <header>   
     <%- include('./partials/navBar.ejs') %> 
@@ -22,19 +22,58 @@
 	<!-- main -->
 	<div class="main-w3layouts wrapper"></div>
 	<br>
+	<main style=" 
+	text-align: center;
+margin-top: 15%;">
 		<h1>SignUp </h1>
+
+		<% if (typeof errors != 'undefined') { %>
+			<% for( let i = 0; i < errors.length; i++ ) { %>
+			<h2><%= errors[i].msg %> !</h2>
+			<% } %>
+		<% } %>
+
+
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<form action="/movies/addUser" method="POST">
-					<input class="text" type="text" name="username" placeholder="Username" required="">
 
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
 
-          			<input class="text" type="password" name="password" placeholder="Password" required="">
-          <br>
-					<input class="text"type='text' name="birthdate" placeholder="YYYY-MM-DD" required />
+					
 
-					<div class="wthree-text">
+
+					<div class="uk-margin">
+						<div class="uk-inline">
+							<span class="uk-form-icon" uk-icon="icon: user"></span>
+							<input class="uk-input"type="text" name="username" placeholder="Username" required="">
+						</div>
+					</div>
+
+
+					<div class="uk-margin">
+						<div class="uk-inline">
+							<span class="uk-form-icon" uk-icon="icon: user"></span>
+							<input class="uk-input" type="email" name="email" placeholder="Email" required="">
+						</div>
+					</div>
+
+
+					<div class="uk-margin">
+						<div class="uk-inline">
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-input"  type="password" name="password" placeholder="Password" required="">
+						</div>
+					</div>
+
+					<div class="uk-margin">
+						<div class="uk-inline">
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-input"  type='text' name="birthdate" placeholder="YYYY-MM-DD" required=''>
+						</div>
+					</div>
+
+
+					
 						<br><br>
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -42,18 +81,21 @@
 						</label>
 						<br>
 						<div class="clear"> </div>
-					</div>
-					<input type="submit" value="SIGNUP">
+					
+				<button type="submit"  style="margin-top: 10px;" class="uk-button uk-button-danger" value="SIGNUP">
+	  
+					SignUp
+				</button>
 				</form>
 			</div>
 		</div>
 		<% if (typeof errors != 'undefined') { %>
 			<% for( let i = 0; i < errors.length; i++ ) { %>
-			<%= errors[i].msg %> 
+			<h2><%= errors[i].msg %> </h2>
 			<% } %>
 		<% } %>
 		
-	<!-- //main -->
+			</main>
 	<%-include('./partials/footer.ejs')  %> 
 </body>
 </html>
