@@ -27,7 +27,7 @@ router.get('/userDetail/:username/:email/:birthdate/:id',controller.UserDetail);
 
 router.get('/signUp',controller.signUp)
 
-router.get('/logIn',controller.logIn)
+
 router.post('/logIn',controller.logInPorPost)
 
 
@@ -40,6 +40,8 @@ router.post('/confirmedit/:Id',  controller.confirmEdit)
 
 router.get('/myReviews',controller.myReviews)
 
+
+router.get('/myReviewsList', controller.myReviewsList)
 
 //eliminar review
 router.post('/delete/:Id', controller.delete),

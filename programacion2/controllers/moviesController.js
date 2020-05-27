@@ -126,25 +126,39 @@ module.exports = {
             res.render ('signUp')
             
         },
-        logIn :function (req, res) {
-            DB.Usuario.findOne({
-                where:{
-                    email:email,
-                    password: password
-                },
-            })
-            .then(results=>{
-                return res.render('logIn');
-            })
+       
+        logInPorPost:function(req, res) {
+      
+           let username = req.body.username;
+           let password = req.body.password;
 
-            // res.render ('logIn')
-            
-        },
+           console.log("este es el id:"+ idpelicula)
+           console.log(req.query);
 
+           
+               moduloLogin.validar(username, password)
+               .then(function(usuario) {
+                   if (usuario != null) {
+                       DB.Usuario.findByPk(id,
+                        {
+                            include: ["Review"]
+                         }
+                        )
+                       .then(function(resultados) {
+                           console.log(resultados)
+                           res.render('myReviewsList',{resultados:resultados })
+                                        
+                       })
+                   } else {
+                       res.redirect('/movies/Signup')
+                   }
+               })
+           
 
-        logInPorPost:function(req, res){
-            res.redirect('/movies/home')
-        },
+           
+             
+
+           },
 
 
 
@@ -254,7 +268,13 @@ module.exports = {
 
                        res.render("myReviews") 
 
+                },
+                myReviewsList: function(rec, res){
+                    res.render('myReviewsList')
                 }
     
+
+
+                
 }
 

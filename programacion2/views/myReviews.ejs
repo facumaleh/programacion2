@@ -22,7 +22,7 @@
       text-align: center;
   margin-top: 20%;">
     <h1>Estas son tus reviews</h1
-      <form action="/movies/logIn"method="post">
+      <form action="/movies/logIn"method="POST">
 
         <div class="uk-margin">
             <div class="uk-inline">
@@ -37,9 +37,12 @@
                 <input class="uk-input"  type="password" name="password" placeholder="Password" required="">
             </div>
         </div>
-    
+        
+        <button type="submit" style="margin-top: 10px;" class="uk-button uk-button-primary">
+          Log-in
+      </button>
       </form>
-      <input type="submit" value="LOGIN">
+        
       
       <p>Don't have an Account? <a href="/movies/SignUp"> Sign up  Now!</a></p>
 
