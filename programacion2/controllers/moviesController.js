@@ -2,6 +2,8 @@ const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 let moduloLogin =require('../modulo-login');
+const { log } = require('debug');
+// const { where } = require('sequelize/types');
 // const { Association } = require('sequelize/types');
 
 module.exports = {
@@ -131,22 +133,30 @@ module.exports = {
       
            let username = req.body.username;
            let password = req.body.password;
+           let id= req.body.id;
 
-           console.log("este es el id:"+ idpelicula)
-           console.log(req.query);
+         
 
            
                moduloLogin.validar(username, password)
                .then(function(usuario) {
                    if (usuario != null) {
-                       DB.Usuario.findByPk(id,
+                              
+                                
+                       DB.Review.findAll({
+                           where : {
+                    user_id: usuario.id
+                           }
+                        },
+                        
                         {
-                            include: ["Review"]
+                            include: ["Usuario"]
                          }
                         )
                        .then(function(resultados) {
+                     
                            console.log(resultados)
-                           res.render('myReviewsList',{resultados:resultados })
+                           res.render('myReviewsList',{resultados:resultados, username:username  })
                                         
                        })
                    } else {

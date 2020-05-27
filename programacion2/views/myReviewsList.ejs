@@ -19,14 +19,47 @@
 <br>
 <br>
 <br>
-    <main>
-       <h1>   These are your reviews:      </h1>
-       
+<main >
 
+       <h1 style=" text-align: center;
+       margin-top: 6%;">   These are your reviews:      </h1>
+       
+       <% for( let i = 0;i < resultados.length;i++ ) { %>
+        <ul>
+        
+          <li>
+    
+            <a href="/movies/detalle?serieId=<%=resultados[i].movie_id  %> "><%=  resultados[i].reviewText%></a>
+            
+
+           <form action="/movies/edit/<%=resultados[i].id %>" method="POST">
+            
+            <button type="submit" style="margin-top: 10px;" class="uk-button uk-button-primary">
+                Edit review
+            </button>
+        </form>
+            
+
+
+
+
+
+        <form  action="/movies/delete/<%=resultados[i].id %> " method="POST">
+          <button type="submit"  style="margin-top: 10px;" class="uk-button uk-button-danger">
+            Delete movie
+        </button>
+    </form>
+         
+          </li>
+          <br>
+        </ul>
+      <% } %>
+     
        
     </main>
 
   </body>
+  <br><br><br><br><br><br>
   <%-include('./partials/footer.ejs')  %> 
 </html>
 
