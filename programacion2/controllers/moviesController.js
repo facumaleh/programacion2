@@ -2,7 +2,7 @@ const DB = require('../database/models');
 const Op = DB.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 let moduloLogin =require('../modulo-login');
-const { log } = require('debug');
+// const { log } = require('debug');
 // const { where } = require('sequelize/types');
 // const { Association } = require('sequelize/types');
 
@@ -145,7 +145,7 @@ module.exports = {
 
                moduloLogin.validar(username, password)
                .then(function(usuario) {
-                   if (usuario != null) {
+                   if (usuario != false) {
                               
                                 
                        DB.Review.findAll({
@@ -161,11 +161,13 @@ module.exports = {
                        .then(function(resultados) {
                      
                            console.log(resultados)
-                           res.render('myReviewsList',{resultados:resultados, username:username  })
+                            res.send(resultados)
+                        //    return res.render('myReviewsList',{resultados:resultados, username:username  })
                                         
                        })
                    } else {
-                       res.redirect('/movies/Signup')
+                       res.send(usuario)
+                    //    res.redirect('/movies/Signup')
                    }
                })
            
@@ -181,6 +183,7 @@ module.exports = {
             const idpelicula=req.params.Id;
             let username = req.body.username;
             let password = req.body.password;
+            
 
             console.log("este es el id:"+ idpelicula)
             console.log(req.query);
@@ -188,8 +191,22 @@ module.exports = {
             
                 moduloLogin.validar(username, password)
                 .then(function(usuario) {
-                    if (usuario != null) {
-                        DB.Review.create(req.body)
+                    if (usuario != false) {
+                        DB.Review.create(
+                            {user_id: usuario.id,
+                            movie_id: req.body.movie_id,
+                            reviewText: req.body.reviewText,
+                            createdAt :req.body. createdAt,
+                            score: req.body.score,
+
+                            }
+                            
+                            
+                            
+                            
+                            )
+
+
                         .then(function() {
                             res.redirect('/movies/detalle?serieId='+idpelicula)              
                         })
@@ -257,7 +274,7 @@ module.exports = {
             
                 moduloLogin.validar(username, password)
                 .then(function(usuario) {
-                    if (usuario != null) {
+                    if (usuario != false) {
 
                   DB.Review.update(req.body,{
                       where: {
