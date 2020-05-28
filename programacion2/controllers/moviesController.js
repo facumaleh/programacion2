@@ -137,7 +137,12 @@ module.exports = {
 
          
 
-           
+// Conseguir la información del usuario de la base de datos (por email)
+// En el .then tenes que recuperar la contraseña y usar un método que compareSync()
+// Este metodo toma como primer parametro la contraseña que sin hashear que ingresa el usuario en el formulario de login
+// Y como segundo parametro tu contraseña hasheada guardada en la base de datos (la que obtuviste)
+
+
                moduloLogin.validar(username, password)
                .then(function(usuario) {
                    if (usuario != null) {
