@@ -24,36 +24,82 @@
     </header>
 
     <h1>Add a new movie</h1>
-   
+   <div style="margin-left: 40%;
+   margin-top: 10%">
     <form class="crud" action="/movies/confirmedit/<%= Review.id %>" method="post">
-        <div class="form-group">
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="reviewText" value="<%= Review.reviewText %> " class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="rating">Score:</label><br>
-            <input class="uk-range" type="range" id="rating" name="score" value="<%=Review.score %> " class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="score"></label><br>
-            <input id="movie_id" name="movie_id" type='hidden' value='<%= Review.movie_id %> ' class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="createdAt">created at:</label><br>
-            <input type="date" id="release_date" name="createdAt" value="<%= Review.createdAt %>" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="username">Username<label><br>
-            <input id="username" name="username"  class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label><br>
-          <input  type = 'password' id="password" name="password"   class="form-control">
-      </div>
+
+
+
+					<div class="uk-margin">
+						<div class="uk-inline">
+                            <label for="password">Review text</label><br>
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-input"  type="text" id="title" name="reviewText" value="<%= Review.reviewText %> " class="form-control">
+						</div>
+					</div>
+
+
+
+                    <div class="uk-margin">
+                        <label for="password">Score</label><br>
+						<div class="uk-inline">
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-range" type="range" id="rating" name="score" value="<%=Review.score %> " class="form-control">
+						</div>
+					</div>
+
+       
+
+                    <div class="uk-margin">
+						<div class="uk-inline">
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-range" id="movie_id" name="movie_id" type='hidden' value='<%= Review.movie_id %> ' class="form-control">
+						</div>
+					</div>
+
+                    
+                    <div class="uk-margin">
+						<div class="uk-inline">
+                            <label for="password">created at:</label><br>
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-range"  type="date" id="release_date" name="createdAt" value="<%= Review.createdAt %>" class="form-control">
+						</div>
+					</div>
+
+
+                    <div class="uk-margin">
+						<div class="uk-inline">
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-range" id="username" name="username"  class="form-control">
+						</div>
+					</div>
+
+
+                    <div class="uk-margin">
+						<div class="uk-inline">
+                            <label for="password">username</label><br>
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-input"  type = 'text' id="username" name="username"  class="form-control">
+						</div>
+					</div>
+
+       
+                    <div class="uk-margin">
+						<div class="uk-inline">
+                            <label for="password">Password</label><br>
+							<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+							<input class="uk-input"  type = 'password' id="password" name="password"   class="form-control">
+						</div>
+					</div>
+
+        
+     
+       
         <div class="form-group">
             <button type="submit" name="button"  class="uk-button uk-button-primary" >Submit</button>
         </div>
     </form>
+</div>
     
 </body>
 </html>
