@@ -63,6 +63,7 @@ module.exports = {
         let errors = [];
         
         
+        
         DB.Usuario.findOne({ 
               where: [{
                 email: usuarioFinal.email
@@ -70,8 +71,10 @@ module.exports = {
         })
             .then(usuario=> {
                 
+                
                 if (usuario) {
                     console.log('entró al if');
+                
                     
                     errors.push({ msg: 'Email already exists' });
                     // return res.send(errors)
