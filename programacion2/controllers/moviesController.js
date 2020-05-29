@@ -164,13 +164,13 @@ module.exports = {
                        .then(function(resultados) {
                      
                            console.log(resultados)
-                            res.send(resultados)
-                        //    return res.render('myReviewsList',{resultados:resultados, username:username  })
+                           
+                        return res.render('myReviewsList',{resultados:resultados, username:username  })
                                         
                        })
                    } else {
-                       res.send(usuario)
-                    //    res.redirect('/movies/Signup')
+                   
+                     res.redirect('/movies/Signup')
                    }
                })
            
