@@ -46,6 +46,7 @@ router.get('/myReviewsList', controller.myReviewsList)
 //eliminar review
 router.post('/delete/:Id', controller.delete),
 
+router.get('/botones', controller.botones),
 
 
 module.exports = router;

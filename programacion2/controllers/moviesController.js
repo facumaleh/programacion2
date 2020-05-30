@@ -170,7 +170,7 @@ module.exports = {
                        })
                    } else {
                    
-                     res.redirect('/movies/Signup')
+                     res.redirect('/movies/botones')
                    }
                })
            
@@ -306,8 +306,13 @@ module.exports = {
                 },
                 myReviewsList: function(rec, res){
                     res.render('myReviewsList')
-                }
-    
+                },
+                
+
+                botones: function (req, res){
+
+                    res.render('botones')
+                },
 
 
                 
