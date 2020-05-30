@@ -21,6 +21,11 @@
 <br>
 <main style="text-align: center;" >
 
+  <% if (typeof errors != 'undefined') { %>
+    <% for( let i = 0; i < errors.length; i++ ) { %>
+      <div class="uk-alert-danger"> 	<h2><%= errors[i].msg %> !</h2></div>
+    <% } %>
+  <% } %>
        <h1 style=" text-align: center;
        margin-top: 6%;">   These are your reviews:      </h1>
        

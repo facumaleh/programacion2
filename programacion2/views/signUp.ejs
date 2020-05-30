@@ -25,11 +25,14 @@
 	<main style=" 
 	text-align: center;
 margin-top: 15%;">
+
+
+
 		<h1>SignUp </h1>
 
 		<% if (typeof errors != 'undefined') { %>
 			<% for( let i = 0; i < errors.length; i++ ) { %>
-			<h2><%= errors[i].msg %> !</h2>
+				<div class="uk-alert-danger"> 	<h2><%= errors[i].msg %> !</h2></div>
 			<% } %>
 		<% } %>
 
@@ -89,11 +92,7 @@ margin-top: 15%;">
 				</form>
 			</div>
 		</div>
-		<% if (typeof errors != 'undefined') { %>
-			<% for( let i = 0; i < errors.length; i++ ) { %>
-			<h2><%= errors[i].msg %> </h2>
-			<% } %>
-		<% } %>
+	
 		
 			</main>
 	<%-include('./partials/footer.ejs')  %> 
