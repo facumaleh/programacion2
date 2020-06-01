@@ -199,7 +199,6 @@ module.exports = {
                             {user_id: usuario.id,
                             movie_id: req.body.movie_id,
                             reviewText: req.body.reviewText,
-                            createdAt :req.body. createdAt,
                             score: req.body.score,
 
                             }
@@ -237,38 +236,28 @@ module.exports = {
     
                 },
                 
-                 
-
-
 
             edit: function(req,res){
                 
-        DB.Review.findOne({
-            where: {
-               id: req.params.Id
-            }
-         })
-          .then(function(Review){
-            res.render('editReview',{Review : Review, idpelicula:req.body.idpelicula})
-          })  
-               
-        
-        
-   
+                DB.Review.findOne({
+                    where: {
+                    id: req.params.Id
+                    }
+                })
+                .then(function(Review){
+                    res.render('editReview',{Review : Review, idpelicula:req.body.idpelicula})
+                })  
                 
             },
 
 
 
          confirmEdit:function(req,res){
-                const idpelicula = req.body.movie_id      
+               const idpelicula = req.body.movie_id      
                const idreview = req.params.Id      
                let username = req.body.username;
-            let password = req.body.password;
+               let password = req.body.password;
                
-
-
-
     
                 // console.log("este es el id:"+ idpelicula)
                 // console.log(req.query);
