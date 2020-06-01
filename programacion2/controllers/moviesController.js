@@ -224,25 +224,6 @@ module.exports = {
 
             },
 
-        //     moduloLogin.validar(username, password)
-        //     .then(function(usuario) {
-        //         if (usuario != false) {
-
-        //       DB.Review.update(req.body,{
-        //           where: {
-        //             id: req.params.Id
-        //          }
-        //       })
-
-        //         .then(function() {
-        //             res.redirect('/movies/detalle?serieId='+idpelicula)              
-        //         })
-        //     }
-        //     else{
-        //         res.send("ERROR! USUARIO NO ENCONTRADO!")
-
-        //     }
-        // })
         
             delete: function(req,res){
                let username= req.body.email;
@@ -261,7 +242,9 @@ module.exports = {
                         })
                     }
                     else{
-                        res.send("ERROR! USUARIO NO ENCONTRADO!")
+                      //  res.send("ERROR! USUARIO NO ENCONTRADO!")
+                        res.render('botonesDetalle')
+
                 
                      }
 
