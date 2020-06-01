@@ -50,6 +50,8 @@
 
 
         <form  action="/movies/delete/<%=resultados[i].id %> " method="POST">
+          <input type="hidden"  value="<%=resultados[i].movie_id  %> "  name="movie_id"> 
+          
           <button type="submit"  style="margin-top: 10px;" class="uk-button uk-button-danger">
             Delete review
         </button>

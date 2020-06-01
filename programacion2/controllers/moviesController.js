@@ -232,7 +232,7 @@ module.exports = {
                         {id: req.params.Id}
                     })
                     .then(function() {
-                        res.redirect('/movies/detalle?serieId='+ req.body.idpelicula)              
+                        res.redirect('/movies/detalle?serieId='+ req.body.movie_id)              
                     })
     
                 },
