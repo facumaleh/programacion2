@@ -48,6 +48,8 @@ router.post('/delete/:Id', controller.delete),
 
 router.get('/botones', controller.botones),
 
+router.get('/botonesDetalle',controller.botonesDetalle),
+
 
 module.exports = router;
 

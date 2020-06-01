@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nerfli</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/jstylesheets/seriesByGenre.css">
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+
+    <script src="/javascripts/uikit-icons.min.js" ></script>
+    <script src="/javascripts/uikit.min.js" ></script>
+    <script src="/javascripts/seriesByGenre.js" ></script>
+  </head>
+  <body>
+    <header>     
+      <%- include('./partials/navBar.ejs') %> 
+    </header>
+<br>
+<br>
+<br>
+<br>
+<main style="text-align: center;" >
+
+
+
+        
+
+          <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">
+                    <p  onclick="goBack()"> wrong password or email, try again?    </p>
+
+         </button>
+          
+
+
+
+
+
+        <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">     
+          <p><a href="/movies/SignUp"> Sign up  Now!</a></p>
+        </button>
+      
+        </form>
+      
+
+
+       
+    </main>
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+  </body>
+  <br><br><br><br><br><br>
+  <%-include('./partials/footer.ejs')  %> 
+</html>
+

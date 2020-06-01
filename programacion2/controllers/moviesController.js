@@ -214,8 +214,9 @@ module.exports = {
                             res.redirect('/movies/detalle?serieId='+idpelicula)              
                         })
                     } else {
-                        res.redirect('/movies/Signup')
-                    }
+                
+                        res.redirect('/movies/botonesDetalle')
+                      }
                 })
             
 
@@ -312,6 +313,12 @@ module.exports = {
                 botones: function (req, res){
 
                     res.render('botones')
+                },
+
+
+                botonesDetalle: function (req, res){
+
+                    res.render('botonesDetalle')
                 },
 
 
