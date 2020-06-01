@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3309
--- Tiempo de generación: 01-06-2020 a las 13:53:14
+-- Tiempo de generación: 01-06-2020 a las 16:26:58
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.4.2
 
@@ -25,8 +25,8 @@ CREATE TABLE `reviews` (
   `movie_id` varchar(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `reviewText` text NOT NULL,
-  `createdAt` date DEFAULT NULL,
-  `updatedAt` date DEFAULT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `score` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -35,28 +35,35 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `movie_id`, `user_id`, `reviewText`, `createdAt`, `updatedAt`, `score`) VALUES
-(1, '1 ', 1, 'muy buena serie', '2000-12-12', '2000-12-12', 50),
-(3, '60625', 34, 'no la recomiendo', '2020-05-12', '2000-12-12', 80),
-(4, '60625', 34, 'iys good', '2020-05-12', '2000-12-12', 80),
-(5, '60625', 1, 'OMG!', '2020-05-12', '2000-12-12', 80),
-(6, '60625', 2, 'muy larga', '2020-05-12', '2000-12-12', 80),
-(8, '66017', 3, 'amen', '2020-05-05', '2000-12-12', 10),
-(9, '2734', 4, 'Hola, me recomiendan otra serie?', '2020-05-04', '2000-12-12', 30),
-(10, '2734', 6, 'Como veo otra?', '2020-05-04', '2000-12-12', 20),
-(11, '2734', 5, 'Muy buena', '2020-05-04', '2000-12-12', 10),
-(12, '46952', 7, 'muy buena', '2020-05-11', '2000-12-12', 10),
-(30, '60735', 7, 'No la recomiendo', '2020-05-20', '2000-12-12', 10),
-(33, '60735 ', 7, 'Como la descargo?', '2020-05-04', '2000-12-12', 50),
-(40, '60625', 34, 'No hay orta ?', '2020-04-27', '2000-12-12', 19),
-(41, '60625', 34, 'muy mala no la vean', '2020-05-11', '2000-12-12', 0),
-(48, '48866', 5, 'prueba', '2020-05-04', NULL, 50),
-(49, '80986', 6, 'muy buena serie', '2020-05-11', NULL, 100),
-(51, '60735', 9, 'Donde la desacrgo?', '2020-05-11', NULL, 50),
-(54, '60735', 1, 'muy buena serie', '2020-05-28', NULL, 100),
-(59, '498 ', 47, 'quien es el actor de la serie?', '2020-05-05', NULL, 50),
-(61, '60735', 49, 'muy buena serie', '2020-06-29', NULL, 50),
-(62, '60735', 47, 'muy buena la serie 2020', '2020-06-23', NULL, 90),
-(63, '60735', 49, 'No la vean', '2020-06-01', NULL, 24);
+(1, '1', 1, '\"SDWDAWD\"', '2000-12-12 00:00:00', '2000-12-12 03:00:00', 10),
+(2, '60625', NULL, 'sdfsdfsdfsdf', '2020-05-21 00:00:00', NULL, 8),
+(3, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12 00:00:00', NULL, 8),
+(4, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12 00:00:00', NULL, 8),
+(5, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12 00:00:00', NULL, 8),
+(6, '60625', NULL, 'ryrtyrtyrtyrty', '2020-05-12 00:00:00', NULL, 8),
+(9, '2734', NULL, 'A ver si anda el select', '2020-05-06 00:00:00', NULL, NULL),
+(19, '1622', NULL, 'blabla', '2020-05-06 00:00:00', NULL, 3),
+(20, '1622', NULL, 'blabla', '2020-05-06 00:00:00', NULL, 3),
+(21, '1622', NULL, 'blabla', '2020-05-06 00:00:00', NULL, 3),
+(22, '1622', NULL, 'blabla', '2020-05-06 00:00:00', NULL, 3),
+(48, '1396', NULL, 'blabla', '2020-05-14 00:00:00', NULL, 12),
+(57, '48866', NULL, 'a ver si funca', '2020-05-06 00:00:00', NULL, 69),
+(61, '102903', NULL, 'hoa', '2020-05-11 00:00:00', NULL, 67),
+(62, '102903', NULL, 'ta buena', '2020-05-20 00:00:00', NULL, 58),
+(66, '60735', 50, 'ufewisn', '2020-04-29 00:00:00', NULL, 62),
+(67, '498', 51, 'blabla', '2020-04-28 00:00:00', NULL, 64),
+(72, '60735 ', 52, 'mira como edito ahrre ', '2020-06-01 00:00:00', '2020-06-01 14:33:04', 50),
+(73, '60735', 52, 'Sin created', '2020-06-01 00:00:00', '2020-06-01 14:41:40', 50);
+
+--
+-- Disparadores `reviews`
+--
+DELIMITER $$
+CREATE TRIGGER `reviews_AFTER_UPDATE` AFTER UPDATE ON `reviews` FOR EACH ROW BEGIN
+
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -111,15 +118,24 @@ INSERT INTO `usuarios` (`username`, `email`, `id`, `birthdate`, `password`) VALU
 ('facu', 'messi@messi.com', 32, '2001-02-02', '123456678990'),
 ('JaviDH', 'javi@dh.com', 33, '2020-05-18', '123456'),
 ('43087273', 'messi@messi.com.ar', 34, '2001-02-02', '123456678990'),
-('facundo', 'facundo@facundo.com', 35, '2001-02-02', '$2b$10$T0Q31a67ZJay9c5nRQdUNuiaQ3WQX4EbEM0bBqvoicESVEYM5dXXO'),
-('tomas', 'tomas@tomas.com', 46, '2001-02-02', '$2b$10$SJcoHBPQnS9iUlE9u1EZc.PCtlSMiQW/BuAE6058PzpFXRNA.rJmm'),
-('1234', '1234@1234.com', 47, '2020-05-18', '$2a$10$7ZbRnuV459g3m2nuRJuolOnrtsCnqt6Rbx0aDI9z9tMeMADUNnSmu'),
-('boca', 'boca@123.com', 48, '2001-02-02', '$2a$10$sf9qY3JsGfH5ZRE0wFj5uu/d1ZZ.BKh4EcjaWtnOjnmML8eKYdPqC'),
-('susdh', 'susdh@gmail.com', 49, '2001-02-02', '$2a$10$ijnxb0iETbQnC//qiUH/reExpW1MWn3UwSnBfVnSOzIwXXN8s/4Ky'),
-('matidh', 'matidh@gmail.com', 50, '2020-05-18', '$2a$10$C53jYOwPZzSt/bjJ5V9So.lHOvZUnNmglc/CPQZdvjg1MZNHCc7Pu'),
-('programacion2', 'programacion2@gmail.com', 51, '2020-05-18', '$2a$10$IGeluzQnMv.uZRQLRosQyOIIlRHLjCElGoTf9lFCCNngnu.p.mAwi'),
-('martin', 'holasoymartin@gmail.com', 52, '1990-02-02', '$2a$10$b3TpO45wJunP8LFNXF/Amu5RwmWivgP593IzVJb2P2GiU1AIN00gK'),
-('javidh', 'javidh@gmail.com', 53, '1990-02-02', '$2a$10$gTLgHWMTht0.Si5SyiCz2OWk0aptwm9dvAcHjwHvcqDM3VnUpeeda');
+('sadkm', 'sadnjs@gmail.com', 35, '2001-02-02', '$2b$10$T0Q31a67ZJay9c5nRQdUNuiaQ3WQX4EbEM0bBqvoicESVEYM5dXXO'),
+(NULL, NULL, 36, NULL, NULL),
+(NULL, NULL, 37, NULL, NULL),
+(NULL, NULL, 38, NULL, NULL),
+(NULL, NULL, 39, NULL, NULL),
+(NULL, NULL, 40, NULL, NULL),
+(NULL, NULL, 41, NULL, NULL),
+(NULL, NULL, 42, NULL, NULL),
+(NULL, NULL, 43, NULL, NULL),
+(NULL, NULL, 44, NULL, NULL),
+(NULL, NULL, 45, NULL, NULL),
+('quieroProbarAlgo', 'etcetcetc@gmail.com', 46, '2001-01-22', '$2a$10$p01d4Fa6cmyZdLEl1J70Y.Wo0aATMfKZYW1fCU0bStTja5DOUOdF.'),
+('caimmi', 'caimmi@gmail.com', 47, '2001-01-22', '$2a$10$rkrv.S9gjwIh6TJaRDDQruRTB1LeXUrfp/j34a5dk187Tog81By3G'),
+('tomascaimmi', 'tomascaimmib@gmail.com', 48, '2001-01-22', '$2a$10$ZC2Lb5rc9JPN1SS5qerA5uKru92dqZcIHC82ZdYKgiMnMrLtMthfG'),
+('tomascaimmi', 'tomascaimmib@gmail.com.ar', 49, '2001-01-22', '$2a$10$jGLrj.hbRBJmQMEnLdQ2yOX0H07KPsjdNW3C4dE8hDaL6Tiim/D2.'),
+('usernuevo', 'usernuevo@gmail.com', 50, '2001-01-22', '$2a$10$LAH.bm/lnU26Zoj9mDVCvOTuIcZEugNxK9xfIS36./KyiTCPrehDm'),
+('soyYo', 'tomas@gmail.com', 51, '2001-01-22', '$2a$10$.QBF7uyK0NKBx09AxS3/puopfEkmnuvTmkCeaj2sIhy2Bi3us2wii'),
+('pass1234', 'pass1234@gmail.com', 52, '2001-01-22', '$2a$10$T1Kpfi3Fgul9nz141vog2Oua5bjyQghDDZGAPAlp8QWGFAKc96aka');
 
 --
 -- Índices para tablas volcadas
@@ -146,13 +162,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Restricciones para tablas volcadas
