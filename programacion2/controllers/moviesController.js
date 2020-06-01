@@ -223,16 +223,51 @@ module.exports = {
               
 
             },
+
+        //     moduloLogin.validar(username, password)
+        //     .then(function(usuario) {
+        //         if (usuario != false) {
+
+        //       DB.Review.update(req.body,{
+        //           where: {
+        //             id: req.params.Id
+        //          }
+        //       })
+
+        //         .then(function() {
+        //             res.redirect('/movies/detalle?serieId='+idpelicula)              
+        //         })
+        //     }
+        //     else{
+        //         res.send("ERROR! USUARIO NO ENCONTRADO!")
+
+        //     }
+        // })
         
             delete: function(req,res){
-               
-                DB.Review.destroy(
-                    { where: 
-                        {id: req.params.Id}
-                    })
-                    .then(function() {
-                        res.redirect('/movies/detalle?serieId='+ req.body.movie_id)              
-                    })
+               let username= req.body.email;
+               let password= req.body.password;
+
+               moduloLogin.validar(username, password)
+               .then(function(usuario) {
+                   if (usuario != false){
+                    
+                    DB.Review.destroy(
+                        { where: 
+                            {id: req.params.Id}
+                        })
+                        .then(function() {
+                            res.redirect('/movies/detalle?serieId='+ req.body.movie_id)              
+                        })
+                    }
+                    else{
+                        res.send("ERROR! USUARIO NO ENCONTRADO!")
+                
+                     }
+
+                   });
+
+              
     
                 },
                 
