@@ -31,7 +31,17 @@
 
 
 <% for( let i = 0; i < resultados.length; i++ ) { %>
-    <p><%=  resultados[i].reviewText %></p>
+    
+  
+  <li>
+    
+    <a href="/movies/detalle?serieId=<%=resultados[i].movie_id  %> "><%=  resultados[i].reviewText%></a>
+    <p>created by: <%=  resultados[i].Usuario.email %> 
+      <br>
+      updated at: <%= resultados[i].updatedAt %> 
+     </p>
+     
+    
 
 <% } %>
        
