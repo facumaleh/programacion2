@@ -329,6 +329,26 @@ module.exports = {
                 },
 
 
+
+                lastReviews: function(req, res){
+
+                    DB.Review.findAll({
+                        order: [
+                            [ ' updatedAt', 'ASC']
+                        ],
+                        limit: 20
+                    })
+                    .then(function (resultados) {
+                        res.render("lastReviews",{
+                            resultados: resultados
+                        });
+                    })
+                    .catch(function (error) {
+                        return res.send(error);
+                    })
+            },
+                
+
                 
 }
 

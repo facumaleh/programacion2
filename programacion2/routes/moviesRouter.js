@@ -50,6 +50,8 @@ router.get('/botones', controller.botones),
 
 router.get('/botonesDetalle',controller.botonesDetalle),
 
+router.get('/lastReviews', controller.lastReviews)
+
 
 module.exports = router;
 
