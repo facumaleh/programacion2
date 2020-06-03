@@ -333,8 +333,9 @@ module.exports = {
                 lastReviews: function(req, res){
 
                     DB.Review.findAll({
+                        include: ["Usuario"],
                         order: [
-                            [ ' updatedAt', 'ASC']
+                            [ 'updatedAt', 'ASC']
                         ],
                         limit: 20
                     })
