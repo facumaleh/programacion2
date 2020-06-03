@@ -335,7 +335,7 @@ module.exports = {
                     DB.Review.findAll({
                         include: ["Usuario"],
                         order: [
-                            [ 'updatedAt', 'ASC']
+                            [ 'updatedAt', 'DESC']
                         ],
                       
                     })
@@ -348,7 +348,49 @@ module.exports = {
                         return res.send(error);
                     })
             },
+
+
+            toprated:function(req, res){
+
+                DB.Review.findAll({
+                    include: ["Usuario"],
+                    order: [
+                        [ 'score', 'DESC']
+                    ],
+                  
+                })
+                .then(function (resultados) {
+                    res.render("toprated",{
+                        resultados: resultados
+                    });
+                })
+                .catch(function (error) {
+                    return res.send(error);
+                })
+        },
                 
+        worstrated:function(req, res){
+
+            DB.Review.findAll({
+                include: ["Usuario"],
+                order: [
+                    [ 'score', 'ASC']
+                ],
+              
+            })
+            .then(function (resultados) {
+                res.render("worstrated",{
+                    resultados: resultados
+                });
+            })
+            .catch(function (error) {
+                return res.send(error);
+            })
+    },
+      
+
+
+
 
                 
 }

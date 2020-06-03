@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nerfli</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/jstylesheets/seriesByGenre.css">
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+
+    <script src="/javascripts/uikit-icons.min.js" ></script>
+    <script src="/javascripts/uikit.min.js" ></script>
+    <script src="/javascripts/seriesByGenre.js" ></script>
+  </head>
+  <body>
+    <header>     
+      <%- include('./partials/navBar.ejs') %> 
+    </header>
+<br>
+<br>
+<br>
+<br>
+<main style="text-align: center;" >
+
+  <% if (typeof errors != 'undefined') { %>
+    <% for( let i = 0; i < errors.length; i++ ) { %>
+      <div class="uk-alert-danger"> 	<h2><%= errors[i].msg %> !</h2></div>
+    <% } %>
+  <% } %>
+       <h1 style=" text-align: center;
+       margin-top: 6%;">   These are the last reviews:      </h1>
+
+
+<% for( let i = 0; i < resultados.length; i++ ) { %>
+    
+  
+  <li>
+    
+    <a href="/movies/detalle?serieId=<%=resultados[i].movie_id  %> "><%=  resultados[i].reviewText%></a>
+    <p>
+        score: <%=resultados[i].score %> 
+        <br>
+        <br>
+        created by: <%=  resultados[i].Usuario.email %> 
+      <br>
+      updated at: <%= resultados[i].updatedAt %> 
+     </p>
+     
+    
+
+<% } %>
+       
+   
+       
+    </main>
+
+  </body>
+  <br><br><br><br><br><br>
+  <%-include('./partials/footer.ejs')  %> 
+</html>
+

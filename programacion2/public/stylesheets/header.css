@@ -7,7 +7,7 @@ header nav {
   box-shadow: -2px -2px 5px white, 2px 2px 5px white;
 	position: fixed;
   top: 0;
-  left: 0;
+  left: -166;
 }
 header nav ul.logo-list {
 	float: left;
@@ -22,12 +22,12 @@ header nav ul li.logo img {
 }
 header nav ul.ul-menu {
 	float: right;
-	width: 74%;
+	width: 100%;
 	margin-top: 8px;
 }
 header nav ul.ul-menu li.menu-item {
 	float: left;
-  width: 10%;
+  width: 8%;
 	margin-right: 2%;
   text-align: center;
 }
