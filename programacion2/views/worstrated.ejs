@@ -40,7 +40,9 @@
         score: <%=resultados[i].score %> 
         <br>
         <br>
-        created by: <%=  resultados[i].Usuario.email %> 
+        created by: <% if (resultados[i].Usuario) { %>
+          <p><%= resultados[i].Usuario.email %> </p> 
+       <% } %> 
       <br>
       updated at: <%= resultados[i].updatedAt %> 
      </p>
