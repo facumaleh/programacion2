@@ -36,7 +36,9 @@
   <li>
     
     <a href="/movies/detalle?serieId=<%=resultados[i].movie_id  %> "><%=  resultados[i].reviewText%></a>
-    <p>created by: <%=  resultados[i].Usuario.email %> 
+    <p>created by: <% if (resultados[i].Usuario) { %>
+      <p><%= resultados[i].Usuario.email %> </p> 
+   <% } %>
       <br>
       updated at: <%= resultados[i].updatedAt %> 
      </p>
