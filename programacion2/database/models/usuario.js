@@ -9,9 +9,6 @@ module.exports = function (sequelize, DataTypes) {
            
         },
         
-        
-
-        
         {
             tableName: 'usuarios',
             timestamps: false

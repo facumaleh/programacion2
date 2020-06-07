@@ -298,7 +298,8 @@ module.exports = {
                     })
                 }
                 else{
-                    res.send("ERROR! USUARIO NO ENCONTRADO!")
+                   // res.send("ERROR! USUARIO NO ENCONTRADO!")
+                   res.render('botonesDetalle')
 
                 }
             })
@@ -368,7 +369,7 @@ module.exports = {
                     return res.send(error);
                 })
         },
-                
+               
         worstrated:function(req, res){
 
             DB.Review.findAll({
